@@ -1,0 +1,16 @@
+[Unit]
+Description=Server Log VPN RIM Dashboard
+After=network.target rsyslog.service
+Wants=rsyslog.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/server-log-vpn-dashboard
+EnvironmentFile=/etc/server-log-vpn-dashboard.env
+ExecStart=/usr/bin/python3 /opt/server-log-vpn-dashboard/app.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

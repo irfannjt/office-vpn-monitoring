@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<title>VPN RIM | Monitoring</title>
+<style>
+:root{color-scheme:dark;--bg:#08111f;--panel:#111e31;--panel2:#16243a;--line:#263954;--muted:#91a4bd;--text:#edf4ff;--blue:#69aaff;--green:#34d399;--red:#fb7185;--amber:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -20%,#19365b 0,transparent 42%),var(--bg);color:var(--text);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:rgba(8,17,31,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.head{max-width:1500px;margin:auto;padding:17px 28px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#06b6d4);font-weight:800;font-size:18px;box-shadow:0 8px 24px #0ea5e955}
+h1{font-size:19px;line-height:1.2;margin:0;letter-spacing:.02em}.sub{color:var(--muted);font-size:12px;margin-top:4px}.live{display:flex;align-items:center;gap:8px;color:#a8f3d4;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px #34d39922}
+main{max-width:1500px;margin:auto;padding:25px 28px 40px}
+.topline{display:flex;justify-content:space-between;align-items:end;margin-bottom:17px;gap:12px}.topline h2{margin:0;font-size:18px}.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card,.panel{background:linear-gradient(145deg,rgba(22,36,58,.96),rgba(15,28,47,.96));border:1px solid var(--line);border-radius:15px;box-shadow:0 12px 35px #00000020}
+.card{padding:18px 19px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-30px;top:-35px;background:#60a5fa0b}
+.k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.09em}.v{font-size:32px;font-weight:750;margin-top:8px;letter-spacing:-.04em}.green{color:var(--green)}.red{color:var(--red)}.amber{color:var(--amber)}
+.layout{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.5fr);gap:15px;margin-top:16px}
+.panel{padding:18px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+h3{font-size:15px;margin:0}.count{font-size:11px;color:var(--muted);background:#22334d;padding:4px 8px;border-radius:20px}
+.scroll{overflow:auto;max-height:540px;border-radius:9px}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid #263954aa}th{position:sticky;top:0;background:#14243a;color:#9db1ca;font-size:10px;text-transform:uppercase;letter-spacing:.07em;z-index:1}td{font-size:12px}tbody tr:hover{background:#ffffff08}
+.pill{display:inline-flex;align-items:center;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.03em}.p-login{background:#063b32;color:#5ee7b4}.p-logout{background:#203650;color:#a9c9f5}.p-failed{background:#4a202e;color:#ff9bad}
+.searchbar{display:flex;gap:8px;align-items:center;margin:0 0 12px;flex-wrap:wrap}
+.searchbox{position:relative;flex:1;min-width:190px}.searchbox span{position:absolute;left:12px;top:9px;color:#8ca3bf}
+input,select{height:38px;border:1px solid #344b6a;border-radius:9px;background:#0c192b;color:var(--text);outline:none;font:inherit;font-size:12px}
+input{width:100%;padding:0 12px 0 35px}select{padding:0 30px 0 10px}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #60a5fa20}
+.result-note{font-size:11px;color:var(--muted);margin-left:auto}
+.datefield{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:11px}
+.datefield input{width:auto;padding:0 9px;min-width:145px}
+button{height:38px;padding:0 14px;border:1px solid #3975bd;border-radius:9px;background:#1d4f89;color:#fff;font:inherit;font-size:12px;font-weight:650;cursor:pointer}
+button:hover{filter:brightness(1.15)}button.secondary{background:#17283e;border-color:#344b6a;color:var(--text)}
+.empty{text-align:center;color:var(--muted);padding:25px 8px}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-top:16px}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.scroll{max-height:420px}}
+@media(max-width:700px){.head{padding:14px 16px}.live{display:none}main{padding:18px 14px 30px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:14px}.v{font-size:27px}.panel{padding:14px}.topline{align-items:start;flex-direction:column}.result-note{width:100%;margin-left:0}}
+@media(max-width:390px){.cards{grid-template-columns:1fr 1fr}.k{font-size:10px}.v{font-size:24px}.searchbar select{flex:1}}
+</style>
+</head>
+<body>
+<header><div class="head">
+ <div class="brand"><div class="logo">V</div><div><h1>SERVER LOG VPN RIM</h1><div class="sub">Centralized VPN activity monitoring</div></div></div>
+ <div class="live"><i class="dot"></i> SYSLOG LIVE <span id="clock" class="muted">Memuat waktu…</span></div>
+</div></header>
+<main>
+ <div class="topline"><div><h2>Ringkasan Monitoring</h2><div class="sub">Aktivitas MikroTik • Pembaruan otomatis setiap 10 detik</div></div><div class="muted" id="refreshState">Menghubungkan…</div></div>
+ <section class="cards">
+  <div class="card"><div class="k">VPN Online</div><div class="v green" id="online">—</div></div>
+  <div class="card"><div class="k">Login Hari Ini</div><div class="v" id="logins">—</div></div>
+  <div class="card"><div class="k">Gagal Autentikasi</div><div class="v red" id="fails">—</div></div>
+  <div class="card"><div class="k">Total Event Terbaca</div><div class="v" id="total">—</div></div>
+ </section>
+ <section class="layout">
+  <div class="panel">
+   <div class="panel-head"><h3>VPN Sedang Online</h3><span class="count" id="sessionCount">0 sesi</span></div>
+   <div class="scroll"><table><thead><tr><th>Username</th><th>IP VPN</th><th>IP Asal</th><th>Waktu Login</th></tr></thead><tbody id="sessions"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody></table></div>
+  </div>
+  <div class="panel">
+   <div class="panel-head"><h3>Aktivitas Terbaru</h3><span class="count" id="eventCount">0 aktivitas</span></div>
+   <div class="searchbar">
+    <div class="searchbox"><span>⌕</span><input id="activitySearch" type="search" placeholder="Cari username, IP, atau kata kunci…" autocomplete="off"></div>
+    <select id="activityType" aria-label="Filter aktivitas"><option value="all">Semua aktivitas</option><option value="login">Login berhasil</option><option value="logout">Logout</option><option value="failed">Gagal autentikasi</option></select>
+   </div>
+   <div class="searchbar periodbar">
+    <label class="datefield">Dari <input id="startDate" type="date" aria-label="Tanggal mulai"></label>
+    <label class="datefield">Sampai <input id="endDate" type="date" aria-label="Tanggal akhir"></label>
+    <button id="applyPeriod" type="button">Tampilkan</button>
+    <button id="resetPeriod" type="button" class="secondary">Reset</button>
+     <button id="exportExcel" type="button" class="secondary">Export Excel</button>
+   </div>
+   <div class="result-note" id="resultNote">Menampilkan aktivitas terbaru</div>
+   <div class="scroll"><table><thead><tr><th>Waktu (WIB)</th><th>Username</th><th>Aktivitas</th><th>IP VPN / Asal</th></tr></thead><tbody id="events"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody></table></div>
+  </div>
+ </section>
+ <div class="footer"><span>SERVER LOG VPN RIM • Data bersumber dari arsip Rsyslog</span><span>Status sesi dihitung dari event login/logout yang tercatat</span></div>
+</main>
+<script>
+let allEvents=[];
+let periodMode=false;
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function renderEvents(){
+ const q=document.getElementById('activitySearch').value.trim().toLowerCase();
+ const type=document.getElementById('activityType').value;
+ const filtered=allEvents.filter(e=>{
+  const hay=[e.user,e.vpn_ip,e.remote_ip,e.message,e.raw].join(' ').toLowerCase();
+  return (!q||hay.includes(q))&&(type==='all'||e.type===type);
+ });
+ document.getElementById('eventCount').textContent=allEvents.length+' aktivitas';
+ document.getElementById('resultNote').textContent=(periodMode?'Hasil periode: ':'Menampilkan ')+filtered.length+' dari '+allEvents.length+' aktivitas'+(periodMode?'':' terbaru');
+ const body=document.getElementById('events');
+ if(!filtered.length){body.innerHTML='<tr><td colspan="4" class="empty">Tidak ada aktivitas yang cocok dengan pencarian.</td></tr>';return}
+ body.innerHTML=filtered.map(e=>{
+  let label=e.type==='login'?'LOGIN BERHASIL':e.type==='logout'?'LOGOUT':'GAGAL AUTENTIKASI';
+  let cls=e.type==='login'?'p-login':e.type==='failed'?'p-failed':'p-logout';
+  return `<tr><td>${esc(e.timestamp_display)}</td><td>${esc(e.user||'—')}</td><td><span class="pill ${cls}">${label}</span></td><td>${esc(e.vpn_ip||e.remote_ip||'—')}</td></tr>`;
+ }).join('');
+}
+async function refresh(){
+ try{
+  const r=await fetch('/api/dashboard',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);
+  const d=await r.json();
+  document.getElementById('clock').textContent=d.server_time;
+  document.getElementById('online').textContent=d.online_count;
+  document.getElementById('logins').textContent=d.logins_today;
+  document.getElementById('fails').textContent=d.failures_today;
+  document.getElementById('total').textContent=d.total_events;
+  document.getElementById('refreshState').textContent='Terakhir diperbarui '+new Date().toLocaleTimeString('id-ID');
+  document.getElementById('sessionCount').textContent=d.active_sessions.length+' sesi';
+  const ss=document.getElementById('sessions');
+  ss.innerHTML=d.active_sessions.length?d.active_sessions.map(x=>`<tr><td>${esc(x.user)}</td><td>${esc(x.vpn_ip)}</td><td>${esc(x.remote_ip)}</td><td>${esc(x.login_display)}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">Tidak ada sesi aktif yang terdeteksi.</td></tr>';
+  if(!periodMode){allEvents=d.recent_events||[];renderEvents();}
+ }catch(e){document.getElementById('refreshState').textContent='Gagal memuat data: '+e.message}
+}
+async function applyPeriod(){
+ const start=document.getElementById('startDate').value;
+ const end=document.getElementById('endDate').value;
+ if(start&&end&&start>end){alert('Tanggal mulai tidak boleh melewati tanggal akhir.');return;}
+ const params=new URLSearchParams();if(start)params.set('start_date',start);if(end)params.set('end_date',end);
+ const button=document.getElementById('applyPeriod');button.disabled=true;button.textContent='Memuat…';
+ try{
+  const r=await fetch('/api/events?'+params.toString(),{cache:'no-store'});const d=await r.json();
+  if(!r.ok)throw new Error(d.error||('HTTP '+r.status));
+  allEvents=d.events||[];periodMode=true;renderEvents();
+  document.getElementById('resultNote').textContent='Hasil periode: '+allEvents.length+' dari '+d.total+' aktivitas'+(d.total>allEvents.length?' (dibatasi 5.000 baris)':'');
+ }catch(e){alert('Pencarian periode gagal: '+e.message)}
+ finally{button.disabled=false;button.textContent='Tampilkan';}
+}
+
+function exportExcel(){
+ const params=new URLSearchParams();
+ const start=document.getElementById('startDate').value;
+ const end=document.getElementById('endDate').value;
+ const type=document.getElementById('activityType').value;
+ const q=document.getElementById('activitySearch').value.trim();
+ if(start)params.set('start_date',start);
+ if(end)params.set('end_date',end);
+ if(type!=='all')params.set('type',type);
+ if(q)params.set('q',q);
+ if(start&&end&&start>end){alert('Tanggal mulai tidak boleh melewati tanggal akhir.');return;}
+ window.location.href='/api/export.xlsx?'+params.toString();
+}
+
+function resetPeriod(){
+ document.getElementById('startDate').value='';document.getElementById('endDate').value='';periodMode=false;refresh();
+}
+document.getElementById('activitySearch').addEventListener('input',renderEvents);
+document.getElementById('activityType').addEventListener('change',renderEvents);
+document.getElementById('applyPeriod').addEventListener('click',applyPeriod);
+document.getElementById('resetPeriod').addEventListener('click',resetPeriod);
+document.getElementById('exportExcel').addEventListener('click',exportExcel);
+refresh();setInterval(refresh,10000);
+</script>
+</body></html>
