@@ -7,3 +7,19 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Local backups and temporary files
+*.backup-*
+*.bak-*
+backup-*/
+backup-*-*/
+test_connector_path.py
+192.168.5.40.2055:/
+
+# Backup dan file sementara server
+*.backup-*
+*.bak-*
+backup-*/
+backup-*-*/
+test_connector_path.py
+192.168.5.40.2055:

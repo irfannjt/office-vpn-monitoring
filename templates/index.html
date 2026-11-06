@@ -2,83 +2,203 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1220">
-<title>VPN RIM | Monitoring</title>
+<meta name="theme-color" content="#061326">
+<title>Office VPN Monitoring</title>
 <style>
-:root{color-scheme:dark;--bg:#08111f;--panel:#111e31;--panel2:#16243a;--line:#263954;--muted:#91a4bd;--text:#edf4ff;--blue:#69aaff;--green:#34d399;--red:#fb7185;--amber:#fbbf24}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -20%,#19365b 0,transparent 42%),var(--bg);color:var(--text);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;background:rgba(8,17,31,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.head{max-width:1500px;margin:auto;padding:17px 28px;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.brand{display:flex;align-items:center;gap:12px}.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#06b6d4);font-weight:800;font-size:18px;box-shadow:0 8px 24px #0ea5e955}
-h1{font-size:19px;line-height:1.2;margin:0;letter-spacing:.02em}.sub{color:var(--muted);font-size:12px;margin-top:4px}.live{display:flex;align-items:center;gap:8px;color:#a8f3d4;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px #34d39922}
-main{max-width:1500px;margin:auto;padding:25px 28px 40px}
-.topline{display:flex;justify-content:space-between;align-items:end;margin-bottom:17px;gap:12px}.topline h2{margin:0;font-size:18px}.muted{color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.card,.panel{background:linear-gradient(145deg,rgba(22,36,58,.96),rgba(15,28,47,.96));border:1px solid var(--line);border-radius:15px;box-shadow:0 12px 35px #00000020}
-.card{padding:18px 19px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-30px;top:-35px;background:#60a5fa0b}
-.k{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.09em}.v{font-size:32px;font-weight:750;margin-top:8px;letter-spacing:-.04em}.green{color:var(--green)}.red{color:var(--red)}.amber{color:var(--amber)}
-.layout{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(0,1.5fr);gap:15px;margin-top:16px}
-.panel{padding:18px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
-h3{font-size:15px;margin:0}.count{font-size:11px;color:var(--muted);background:#22334d;padding:4px 8px;border-radius:20px}
-.scroll{overflow:auto;max-height:540px;border-radius:9px}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:11px 10px;border-bottom:1px solid #263954aa}th{position:sticky;top:0;background:#14243a;color:#9db1ca;font-size:10px;text-transform:uppercase;letter-spacing:.07em;z-index:1}td{font-size:12px}tbody tr:hover{background:#ffffff08}
-.pill{display:inline-flex;align-items:center;padding:4px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.03em}.p-login{background:#063b32;color:#5ee7b4}.p-logout{background:#203650;color:#a9c9f5}.p-failed{background:#4a202e;color:#ff9bad}
-.searchbar{display:flex;gap:8px;align-items:center;margin:0 0 12px;flex-wrap:wrap}
-.searchbox{position:relative;flex:1;min-width:190px}.searchbox span{position:absolute;left:12px;top:9px;color:#8ca3bf}
-input,select{height:38px;border:1px solid #344b6a;border-radius:9px;background:#0c192b;color:var(--text);outline:none;font:inherit;font-size:12px}
-input{width:100%;padding:0 12px 0 35px}select{padding:0 30px 0 10px}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #60a5fa20}
-.result-note{font-size:11px;color:var(--muted);margin-left:auto}
-.datefield{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:11px}
-.datefield input{width:auto;padding:0 9px;min-width:145px}
-button{height:38px;padding:0 14px;border:1px solid #3975bd;border-radius:9px;background:#1d4f89;color:#fff;font:inherit;font-size:12px;font-weight:650;cursor:pointer}
-button:hover{filter:brightness(1.15)}button.secondary{background:#17283e;border-color:#344b6a;color:var(--text)}
-.empty{text-align:center;color:var(--muted);padding:25px 8px}
-.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin-top:16px}
-@media(max-width:1050px){.layout{grid-template-columns:1fr}.scroll{max-height:420px}}
-@media(max-width:700px){.head{padding:14px 16px}.live{display:none}main{padding:18px 14px 30px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:14px}.v{font-size:27px}.panel{padding:14px}.topline{align-items:start;flex-direction:column}.result-note{width:100%;margin-left:0}}
-@media(max-width:390px){.cards{grid-template-columns:1fr 1fr}.k{font-size:10px}.v{font-size:24px}.searchbar select{flex:1}}
+:root{color-scheme:dark;--bg:#041225;--side:#06172b;--panel:#0b1d33;--panel2:#102640;--line:#183653;--muted:#9bb0c9;--text:#edf5ff;--blue:#39a5ff;--cyan:#35c8ee;--green:#10d58a;--red:#ff5268;--amber:#f6a623;--purple:#a77bff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 70% -20%,#12345a 0,transparent 40%),var(--bg);color:var(--text);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif}
+.app{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:255px;background:linear-gradient(180deg,#06172b,#041225);border-right:1px solid #17324e;display:flex;flex-direction:column;z-index:10}.brand{display:flex;align-items:center;gap:13px;padding:22px 20px 18px;border-bottom:1px solid #17324e}.logo{width:55px;height:60px;flex:none;display:grid;place-items:center;filter:drop-shadow(0 8px 18px #167be866)}.logo svg{width:55px;height:60px}.brand h1{font-size:18px;line-height:1.15;margin:0;font-weight:750}.brand small{display:inline-block;color:#a8c9ed;background:#102c4a;border-radius:20px;padding:3px 9px;margin-top:8px;font-size:11px}.nav{padding:12px 8px;display:grid;gap:3px}.nav a{color:#d6e4f5;text-decoration:none;padding:11px 13px;border-radius:9px;display:flex;align-items:center;gap:13px;border-left:3px solid transparent;font-size:13px}.nav a:hover{background:#102b48}.nav a.active{background:linear-gradient(90deg,#12365b,#102842);border-left-color:#36a5ff;color:white}.nav .ico{width:18px;text-align:center;color:#b8d2ef;font-size:16px}.nav-sep{height:1px;background:#17324e;margin:10px 12px}.side-bottom{margin-top:auto;padding:18px 20px 22px;color:#9fb4ce;font-size:11px}.side-art{height:100px;display:grid;place-items:center;color:#248fe8;font-size:52px;text-shadow:0 0 24px #168bff99}.online-tag{display:table;margin:10px auto 0;background:#063c32;color:#48e7ae;padding:5px 14px;border-radius:20px;font-size:11px}
+.main{margin-left:255px;min-width:0}.topbar{height:82px;padding:0 25px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #15314d;background:#06172be8;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}.page-title{display:flex;align-items:center;gap:13px}.title-icon{width:40px;height:40px;border-radius:12px;background:#12365a;color:#52b4ff;display:grid;place-items:center;font-size:19px}.page-title h2{margin:0;font-size:20px}.page-title p{margin:2px 0 0;color:var(--muted);font-size:12px}.top-actions{display:flex;align-items:center;gap:10px}.last-update{border:1px solid #1a3b5b;border-radius:25px;padding:8px 13px;color:#64baff;font-size:12px;white-space:nowrap}.live{display:flex;align-items:center;gap:8px;background:#063a31;color:#51e7ac;padding:8px 13px;border-radius:25px;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#12d58a;box-shadow:0 0 0 4px #12d58a20}
+.content{padding:22px 24px 35px;max-width:1800px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 14px}.section-head h3{margin:0;font-size:16px}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}.card{min-height:105px;padding:15px 17px;border-radius:14px;border:1px solid #173956;background:linear-gradient(145deg,#0d2944,#0a1c31);display:flex;align-items:center;gap:14px;box-shadow:0 10px 28px #0002}.card-icon{width:57px;height:57px;border-radius:50%;display:grid;place-items:center;font-size:24px;flex:none}.c-green{background:#064b40;color:#24e3a0}.c-red{background:#54202e;color:#ff6478}.c-blue{background:#103e69;color:#42b3ff}.c-purple{background:#34215f;color:#bb91ff}.card-label{color:#d6e4f5;font-size:12px}.card-value{font-size:29px;font-weight:750;line-height:1.2;margin-top:4px}.card-note{font-size:11px;color:#9cb2cb;margin-top:3px}
+.panel{background:linear-gradient(145deg,#0b2037,#091a2e);border:1px solid #173956;border-radius:13px;box-shadow:0 12px 30px #0002;padding:17px;min-width:0;margin-bottom:18px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.panel-head h3{font-size:15px;margin:0}.count{font-size:11px;color:#b7cce3;background:#18334f;border-radius:20px;padding:4px 9px}.toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}.searchbox{position:relative;flex:1;min-width:220px}.searchbox span{position:absolute;left:13px;top:8px;color:#9bb0c9;font-size:17px}input,select{height:39px;border:1px solid #254563;border-radius:9px;background:#07182b;color:var(--text);outline:none;font:inherit;font-size:12px}input{width:100%;padding:0 12px 0 36px}select{padding:0 28px 0 11px}input:focus,select:focus{border-color:#42aaff;box-shadow:0 0 0 3px #42aaff20}.datefield{display:flex;align-items:center;gap:7px;color:#a9bfd7;font-size:11px}.datefield input{width:auto;padding:0 9px;min-width:145px}.result-note{color:#9bb0c9;font-size:11px;margin:8px 0;text-align:right}button{height:39px;padding:0 15px;border:1px solid #277be2;border-radius:9px;background:linear-gradient(135deg,#2368e8,#3159e7);color:white;font:inherit;font-size:12px;font-weight:700;cursor:pointer}button.green-btn{background:linear-gradient(135deg,#079e72,#05b783);border-color:#08b783}button.secondary{background:#142b45;border-color:#294966;color:#e6f1ff}button:disabled{opacity:.5;cursor:not-allowed}button:hover{filter:brightness(1.12)}
+.scroll{overflow:auto;max-height:610px;border-radius:9px}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px 11px;border-bottom:1px solid #183653}th{position:sticky;top:0;background:#102943;color:#c6d8ec;font-size:11px;z-index:1}td{font-size:12px}tbody tr:nth-child(even){background:#07182a66}tbody tr:hover{background:#143451}.pill{display:inline-flex;align-items:center;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:750}.p-login{background:#07563f;color:#65f0b8}.p-logout{background:#662735;color:#ff9cab}.p-failed{background:#633d13;color:#ffd17a}.empty{text-align:center;color:var(--muted);padding:25px 8px}.system-panel{display:none}.system-panel.visible{display:block}.sysgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.sysitem{background:#07182b;border:1px solid #1b3a58;border-radius:10px;padding:12px}.sysitem small{display:block;color:#9bb0c9;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.sysitem strong{display:block;margin-top:4px;overflow-wrap:anywhere}.update-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:13px;border:1px solid #805d1c;background:#3a2b102e;border-radius:10px;margin-top:12px}.commit-list{font-size:12px;color:#a8bdd4;line-height:1.8}.view-hidden{display:none!important}.analysis-panel{display:none}.analysis-panel.visible{display:block}.session-panel{display:none}.session-panel.visible{display:block}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8da5bf;font-size:11px;margin-top:15px;padding:12px 3px}.hidden-section{display:none}.hidden-section.visible{display:block}.status-text{font-size:11px;color:#9bb0c9}
+@media(max-width:1100px){.sidebar{width:215px}.main{margin-left:215px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.last-update{display:none}}
+@media(max-width:760px){.sidebar{position:static;width:auto;height:auto}.brand{padding:12px 16px}.brand .logo{width:42px;height:46px}.brand .logo svg{width:42px;height:46px}.nav{display:flex;overflow:auto;padding:7px;gap:5px}.nav a{white-space:nowrap;padding:9px 11px}.nav-sep,.side-bottom{display:none}.main{margin-left:0}.topbar{height:auto;min-height:70px;padding:12px 15px}.content{padding:15px 12px 25px}.page-title h2{font-size:16px}.page-title p{font-size:11px}.cards{gap:9px}.card{padding:11px;gap:9px;min-height:90px}.card-icon{width:42px;height:42px;font-size:19px}.card-value{font-size:23px}.panel{padding:12px}.toolbar>*{flex:1}.searchbox{min-width:100%}.sysgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.cards{grid-template-columns:1fr 1fr}.live{padding:7px 9px}.live span{display:none}.datefield{width:100%;justify-content:space-between}.datefield input{flex:1}.toolbar button{flex:1}}
+
+/* Manajemen User */
+.user-form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.user-field label{display:block;color:#9bb0c9;font-size:11px;margin-bottom:5px}
+.user-field input,.user-field select{width:100%;padding:0 11px}
+.user-actions{display:flex;gap:6px;flex-wrap:wrap}
+.user-actions button{height:30px;padding:0 9px;font-size:10px}
+.user-message{font-size:12px;margin:10px 0;color:#9bb0c9}
+.user-message.error{color:#ff8795}
+.user-message.success{color:#50e7ad}
+@media(max-width:760px){.user-form-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
-<header><div class="head">
- <div class="brand"><div class="logo">V</div><div><h1>SERVER LOG VPN RIM</h1><div class="sub">Centralized VPN activity monitoring</div></div></div>
- <div class="live"><i class="dot"></i> SYSLOG LIVE <span id="clock" class="muted">Memuat waktu…</span></div>
-</div></header>
-<main>
- <div class="topline"><div><h2>Ringkasan Monitoring</h2><div class="sub">Aktivitas MikroTik • Pembaruan otomatis setiap 10 detik</div></div><div class="muted" id="refreshState">Menghubungkan…</div></div>
- <section class="cards">
-  <div class="card"><div class="k">VPN Online</div><div class="v green" id="online">—</div></div>
-  <div class="card"><div class="k">Login Hari Ini</div><div class="v" id="logins">—</div></div>
-  <div class="card"><div class="k">Gagal Autentikasi</div><div class="v red" id="fails">—</div></div>
-  <div class="card"><div class="k">Total Event Terbaca</div><div class="v" id="total">—</div></div>
- </section>
- <section class="layout">
-  <div class="panel">
-   <div class="panel-head"><h3>VPN Sedang Online</h3><span class="count" id="sessionCount">0 sesi</span></div>
-   <div class="scroll"><table><thead><tr><th>Username</th><th>IP VPN</th><th>IP Asal</th><th>Waktu Login</th></tr></thead><tbody id="sessions"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody></table></div>
-  </div>
-  <div class="panel">
-   <div class="panel-head"><h3>Aktivitas Terbaru</h3><span class="count" id="eventCount">0 aktivitas</span></div>
-   <div class="searchbar">
-    <div class="searchbox"><span>⌕</span><input id="activitySearch" type="search" placeholder="Cari username, IP, atau kata kunci…" autocomplete="off"></div>
-    <select id="activityType" aria-label="Filter aktivitas"><option value="all">Semua aktivitas</option><option value="login">Login berhasil</option><option value="logout">Logout</option><option value="failed">Gagal autentikasi</option></select>
+<div class="app">
+<aside class="sidebar">
+ <div class="brand"><div class="logo" aria-label="Office VPN Monitoring"><svg viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 3 57 13v19c0 17-10.4 29.4-25 36C17.4 61.4 7 49 7 32V13L32 3Z" fill="#2563eb" stroke="#65b9ff" stroke-width="2"/><path d="M23 31v-5a9 9 0 0 1 18 0v5" stroke="white" stroke-width="4" stroke-linecap="round"/><rect x="19" y="30" width="26" height="21" rx="5" fill="white"/><circle cx="32" cy="40" r="3" fill="#1762b5"/></svg></div><div><h1>Office VPN<br>Monitoring</h1><small>Server Log &amp; VPN</small></div></div>
+ <nav class="nav" aria-label="Navigasi utama">
+  <a href="#overview" class="active" data-view="overview"><span class="ico">⌂</span>Dashboard</a>
+  <a href="#activity" data-view="activity"><span class="ico">▤</span>Log Aktivitas VPN</a>
+  <a href="#analysis" data-view="analysis"><span class="ico">▥</span>Analisis User VPN</a>
+  <a href="#devices" data-view="devices"><span class="ico">▣</span>Perangkat / Site</a>
+  <a href="#system" data-view="system"><span class="ico">ⓘ</span>Informasi Sistem</a>
+  <a href="#update" data-view="update"><span class="ico">⟳</span>Update Aplikasi</a>
+  <div class="nav-sep"></div>
+  {% if session.get('role') == 'admin' %}
+  <a href="#settings" data-view="settings"><span class="ico">⚙</span>Pengaturan</a>
+  {% endif %}
+  <a href="#about" data-view="about"><span class="ico">ⓘ</span>Tentang</a>
+ </nav>
+ <div class="side-bottom"><div class="side-art">▣</div><div style="text-align:center">v1.0.0 &nbsp;|&nbsp; Office VPN Monitoring</div><div class="online-tag">● Online</div></div>
+</aside>
+<div class="main">
+ <header class="topbar"><div class="page-title"><div class="title-icon">▣</div><div><h2 id="pageHeading">Log Aktivitas VPN</h2><p id="pageSub">Riwayat login dan logout VPN dari seluruh perangkat/site</p></div></div><div class="top-actions"><div class="last-update">⟳ <span id="refreshState">Menghubungkan…</span></div><div class="live"><i class="dot"></i> Live <span id="clock"></span></div><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a></div></header>
+ <main class="content">
+  <section id="overview">
+   <div class="cards">
+    <div class="card"><div class="card-icon c-green">↪</div><div><div class="card-label">VPN Online</div><div class="card-value green" id="online">—</div><div class="card-note">Sesi aktif saat ini</div></div></div>
+    <div class="card"><div class="card-icon c-blue">⇧</div><div><div class="card-label">Login Hari Ini</div><div class="card-value" id="logins">—</div><div class="card-note">Login berhasil</div></div></div>
+    <div class="card"><div class="card-icon c-red">⇩</div><div><div class="card-label">Gagal Autentikasi</div><div class="card-value red" id="fails">—</div><div class="card-note">Percobaan gagal hari ini</div></div></div>
+    <div class="card"><div class="card-icon c-purple">◎</div><div><div class="card-label">Total Aktivitas</div><div class="card-value" id="total">—</div><div class="card-note">Event terbaca dari syslog</div></div></div>
    </div>
-   <div class="searchbar periodbar">
-    <label class="datefield">Dari <input id="startDate" type="date" aria-label="Tanggal mulai"></label>
-    <label class="datefield">Sampai <input id="endDate" type="date" aria-label="Tanggal akhir"></label>
-    <button id="applyPeriod" type="button">Tampilkan</button>
-    <button id="resetPeriod" type="button" class="secondary">Reset</button>
-     <button id="exportExcel" type="button" class="secondary">Export Excel</button>
-   </div>
+  </section>
+  <section id="activity" class="panel">
+   <div class="panel-head"><div><h3>Aktivitas Terbaru</h3><div class="status-text">Riwayat login dan logout VPN dari seluruh perangkat/site</div></div><span class="count" id="eventCount">0 aktivitas</span></div>
+   <div class="toolbar"><div class="searchbox"><span>⌕</span><input id="activitySearch" type="search" placeholder="Cari user / site / IP / provider…" autocomplete="off"></div><select id="activityType" aria-label="Filter aktivitas"><option value="all">Semua Aktivitas</option><option value="login">Login berhasil</option><option value="logout">Logout</option><option value="failed">Gagal autentikasi</option></select></div>
+   <div class="toolbar"><label class="datefield">Dari <input id="startDate" type="date" aria-label="Tanggal mulai"></label><label class="datefield">Sampai <input id="endDate" type="date" aria-label="Tanggal akhir"></label><button id="applyPeriod" type="button">Tampilkan</button><button id="resetPeriod" type="button" class="secondary">Reset</button><button id="exportExcel" type="button" class="green-btn">⇩ Export Excel</button></div>
    <div class="result-note" id="resultNote">Menampilkan aktivitas terbaru</div>
-   <div class="scroll"><table><thead><tr><th>Waktu (WIB)</th><th>Username</th><th>Aktivitas</th><th>IP VPN / Asal</th></tr></thead><tbody id="events"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody></table></div>
-  </div>
- </section>
- <div class="footer"><span>SERVER LOG VPN RIM • Data bersumber dari arsip Rsyslog</span><span>Status sesi dihitung dari event login/logout yang tercatat</span></div>
-</main>
+   <div class="scroll"><table><thead><tr><th>Waktu (WIB)</th><th>User / Site</th><th>Aktivitas</th><th>IP VPN</th><th>IP Asal (Publik)</th><th>Provider (ISP)</th><th>Negara</th></tr></thead><tbody id="events"><tr><td colspan="7" class="empty">Memuat data…</td></tr></tbody></table></div>
+  </section>
+  <section id="analysis" class="panel analysis-panel view-hidden">
+   <div class="panel-head">
+    <div><h3>Analisis Trafik User VPN</h3><div class="status-text">Analisis koneksi berdasarkan NetFlow CCR1009</div></div>
+    <span class="count" id="analysisStatus">Menunggu pilihan user</span>
+   </div>
+   <div class="toolbar">
+    <select id="analysisUser" aria-label="Pilih username VPN" style="min-width:220px;flex:1">
+     <option value="">Memuat pengguna VPN...</option>
+    </select>
+    <button type="button" class="secondary" id="reloadAnalysisUsers">Muat Ulang User</button>
+    <button type="button" id="runAnalysis">Tampilkan Analisis</button>
+   </div>
+   <div class="sysgrid" style="margin-bottom:14px">
+    <div class="sysitem"><small>Username / IP VPN</small><strong id="analysisIdentity">—</strong></div>
+    <div class="sysitem"><small>Total Flow</small><strong id="analysisFlows">—</strong></div>
+    <div class="sysitem"><small>Total Trafik / Paket</small><strong id="analysisTraffic">—</strong></div>
+   </div>
+   <div class="result-note" id="analysisNote">Pilih user VPN yang sedang online.</div>
+   <div class="scroll">
+    <table>
+     <thead><tr><th>Waktu</th><th>Arah</th><th>IP Lawan</th><th>Port</th><th>Protokol</th><th>Paket</th><th>Traffic</th></tr></thead>
+     <tbody id="analysisRows"><tr><td colspan="7" class="empty">Belum ada analisis.</td></tr></tbody>
+    </table>
+   </div>
+   <p class="status-text" style="margin-top:12px">Catatan: NetFlow menampilkan IP tujuan, port, protokol, waktu, paket, dan volume data. Konten halaman HTTPS tidak dapat dibaca dari NetFlow saja.</p>
+  </section>
+  <section id="devices" class="panel session-panel"><div class="panel-head"><div><h3>VPN Sedang Online / Perangkat</h3><div class="status-text">Sesi aktif yang terdeteksi dari log</div></div><span class="count" id="sessionCount">0 sesi</span></div><div class="scroll"><table><thead><tr><th>Username</th><th>IP VPN</th><th>IP Asal</th><th>Waktu Login</th></tr></thead><tbody id="sessions"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody></table></div></section>
+  <section id="system" class="panel system-panel"><div class="panel-head"><div><h3>Informasi Sistem</h3><div class="status-text">Versi aplikasi dan status repository</div></div><button id="checkUpdate" type="button" class="secondary">Periksa Update</button></div><div class="sysgrid"><div class="sysitem"><small>Versi</small><strong id="sysVersion">Memuat…</strong></div><div class="sysitem"><small>Branch</small><strong id="sysBranch">—</strong></div><div class="sysitem"><small>Commit lokal</small><strong id="sysCommit">—</strong></div></div></section>
+  <section id="update" class="panel system-panel"><div class="panel-head"><div><h3>Update Aplikasi</h3><div class="status-text">Pembaruan resmi dari GitHub</div></div><button id="checkUpdate2" type="button" class="secondary">Periksa Update</button></div><div class="update-banner"><div><strong id="updateTitle">Memeriksa pembaruan…</strong><div class="status-text" id="updateMessage">Menghubungi GitHub repository irfannjt/office-vpn-monitoring</div></div><button id="updateNow" type="button" disabled>Update Sekarang</button></div><div style="margin-top:13px"><strong style="font-size:12px">Changelog terbaru</strong><div id="changelog" class="commit-list">Memuat riwayat perubahan…</div></div><div style="margin-top:13px"><strong style="font-size:12px">Update manual via SSH</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#07182b;border:1px solid #1b3a58;border-radius:9px;padding:12px;color:#86efac;font-size:11px">cd /opt/server-log-vpn-dashboard &amp;&amp; git pull --ff-only origin main
+systemctl restart server-log-vpn-dashboard</pre></div></section>
+
+  <section id="settings" class="panel hidden-section">
+   <div class="panel-head">
+    <div>
+     <h3>Manajemen User</h3>
+     <div class="status-text">Kelola akun akses Office VPN Monitoring</div>
+    </div>
+    <span class="count" id="userCount">0 user</span>
+   </div>
+
+   <div class="panel" style="background:#07182b;margin-bottom:15px">
+    <h3 style="font-size:13px;margin:0 0 12px">Tambah User Baru</h3>
+    <form id="addUserForm">
+     <div class="user-form-grid">
+      <div class="user-field">
+       <label for="newUsername">Username</label>
+       <input id="newUsername" type="text" maxlength="100" required autocomplete="off" placeholder="Username baru">
+      </div>
+      <div class="user-field">
+       <label for="newPassword">Password (minimal 10 karakter)</label>
+       <input id="newPassword" type="password" minlength="10" required autocomplete="new-password" placeholder="Password">
+      </div>
+      <div class="user-field">
+       <label for="newRole">Role</label>
+       <select id="newRole">
+        <option value="operator">Operator</option>
+        <option value="admin">Admin</option>
+       </select>
+      </div>
+     </div>
+     <div style="margin-top:12px;display:flex;justify-content:flex-end">
+      <button type="submit" id="addUserButton">+ Tambah User</button>
+     </div>
+    </form>
+    <div id="userMessage" class="user-message" aria-live="polite"></div>
+   </div>
+
+   <div class="panel-head">
+    <div>
+     <h3>Daftar User</h3>
+     <div class="status-text">Akun yang memiliki akses ke dashboard</div>
+    </div>
+    <button type="button" class="secondary" id="reloadUsers">Muat Ulang</button>
+   </div>
+   <div class="scroll">
+    <table>
+     <thead>
+      <tr><th>Username</th><th>Role</th><th>Status</th><th>Login Terakhir</th><th>Aksi</th></tr>
+     </thead>
+     <tbody id="userRows">
+      <tr><td colspan="5" class="empty">Memuat user...</td></tr>
+     </tbody>
+    </table>
+   </div>
+  </section>
+
+  <section id="about" class="panel hidden-section">
+   <h3>Tentang Office VPN Monitoring</h3>
+   <p class="status-text">Dashboard pemantauan aktivitas VPN berbasis syslog. Data aktivitas berasal dari arsip Rsyslog server.</p>
+
+   <div class="sysgrid" style="margin-top:18px">
+    <div class="sysitem">
+     <strong>📝 License</strong>
+     <p class="status-text">MIT License - Free for commercial and personal use</p>
+    </div>
+    <div class="sysitem">
+     <strong>👨‍💻 Development</strong>
+     <p class="status-text">Built with ❤️ for RIM Irfan Sugianto</p>
+    </div>
+   </div>
+
+   <div class="result-note" style="margin-top:14px">
+    <strong>Important</strong>
+    <p class="status-text">Always use <code>formatWIB()</code> and <code>toWIB()</code> functions when displaying dates to users.</p>
+   </div>
+  </section>
+  <div class="footer"><span>OFFICE VPN MONITORING • Data bersumber dari arsip Rsyslog</span><span>Status sesi dihitung dari event login/logout yang tercatat</span></div>
+ </main>
+</div></div>
 <script>
+
 let allEvents=[];
 let periodMode=false;
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ipMetaCache=new Map();
+const ipMetaDone=new Set();
+async function enrichPublicIPs(events){
+ const ips=[...new Set(events.map(e=>e.remote_ip).filter(Boolean))].slice(0,80);
+ for(const ip of ips){
+  if(ipMetaDone.has(ip))continue;
+  try{
+   const r=await fetch("/api/ip-info?ip="+encodeURIComponent(ip),{cache:"no-store"});
+   if(!r.ok)throw new Error("HTTP "+r.status);
+   const d=await r.json();
+   if(d.ok!==true)throw new Error("Metadata tidak tersedia");
+   const key=ip.replace(/[^a-zA-Z0-9]/g,"-");
+   ipMetaCache.set(ip,{provider:d.provider||"Tidak diketahui",country:(d.flag?d.flag+" ":"")+(d.country_code||"—")});
+   document.querySelectorAll("[id=\"isp-"+key+"\"]").forEach(el=>el.textContent=d.provider||"Tidak diketahui");
+   document.querySelectorAll("[id=\"country-"+key+"\"]").forEach(el=>el.textContent=(d.flag?d.flag+" ":"")+(d.country_code||"—"));
+   ipMetaDone.add(ip);
+  }catch(e){console.warn("Deteksi IP gagal, akan dicoba ulang:",ip,e);}
+ }
+}
 function renderEvents(){
  const q=document.getElementById('activitySearch').value.trim().toLowerCase();
  const type=document.getElementById('activityType').value;
@@ -89,11 +209,12 @@ function renderEvents(){
  document.getElementById('eventCount').textContent=allEvents.length+' aktivitas';
  document.getElementById('resultNote').textContent=(periodMode?'Hasil periode: ':'Menampilkan ')+filtered.length+' dari '+allEvents.length+' aktivitas'+(periodMode?'':' terbaru');
  const body=document.getElementById('events');
- if(!filtered.length){body.innerHTML='<tr><td colspan="4" class="empty">Tidak ada aktivitas yang cocok dengan pencarian.</td></tr>';return}
+ if(!filtered.length){body.innerHTML='<tr><td colspan="7" class="empty">Tidak ada aktivitas yang cocok dengan pencarian.</td></tr>';return}
  body.innerHTML=filtered.map(e=>{
   let label=e.type==='login'?'LOGIN BERHASIL':e.type==='logout'?'LOGOUT':'GAGAL AUTENTIKASI';
   let cls=e.type==='login'?'p-login':e.type==='failed'?'p-failed':'p-logout';
-  return `<tr><td>${esc(e.timestamp_display)}</td><td>${esc(e.user||'—')}</td><td><span class="pill ${cls}">${label}</span></td><td>${esc(e.vpn_ip||e.remote_ip||'—')}</td></tr>`;
+  const meta=ipMetaCache.get(e.remote_ip)||{};
+  return `<tr><td>${esc(e.timestamp_display)}</td><td>${esc(e.user||'—')}</td><td><span class="pill ${cls}">${label}</span></td><td>${esc(e.vpn_ip||'—')}</td><td>${esc(e.remote_ip||'—')}</td><td id="isp-${esc(e.remote_ip||'none').replace(/[^a-zA-Z0-9]/g,'-')}">${e.remote_ip?(meta.provider||'Mendeteksi…'):'—'}</td><td id="country-${esc(e.remote_ip||'none').replace(/[^a-zA-Z0-9]/g,'-')}">${e.remote_ip?(meta.country||'Mendeteksi…'):'—'}</td></tr>`;
  }).join('');
 }
 async function refresh(){
@@ -105,11 +226,11 @@ async function refresh(){
   document.getElementById('logins').textContent=d.logins_today;
   document.getElementById('fails').textContent=d.failures_today;
   document.getElementById('total').textContent=d.total_events;
-  document.getElementById('refreshState').textContent='Terakhir diperbarui '+new Date().toLocaleTimeString('id-ID');
+  document.getElementById('refreshState').textContent='Last Update: '+new Date().toLocaleTimeString('id-ID');
   document.getElementById('sessionCount').textContent=d.active_sessions.length+' sesi';
   const ss=document.getElementById('sessions');
   ss.innerHTML=d.active_sessions.length?d.active_sessions.map(x=>`<tr><td>${esc(x.user)}</td><td>${esc(x.vpn_ip)}</td><td>${esc(x.remote_ip)}</td><td>${esc(x.login_display)}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">Tidak ada sesi aktif yang terdeteksi.</td></tr>';
-  if(!periodMode){allEvents=d.recent_events||[];renderEvents();}
+  if(!periodMode){allEvents=d.recent_events||[];renderEvents();enrichPublicIPs(allEvents);}
  }catch(e){document.getElementById('refreshState').textContent='Gagal memuat data: '+e.message}
 }
 async function applyPeriod(){
@@ -121,7 +242,7 @@ async function applyPeriod(){
  try{
   const r=await fetch('/api/events?'+params.toString(),{cache:'no-store'});const d=await r.json();
   if(!r.ok)throw new Error(d.error||('HTTP '+r.status));
-  allEvents=d.events||[];periodMode=true;renderEvents();
+  allEvents=d.events||[];periodMode=true;renderEvents();enrichPublicIPs(allEvents);
   document.getElementById('resultNote').textContent='Hasil periode: '+allEvents.length+' dari '+d.total+' aktivitas'+(d.total>allEvents.length?' (dibatasi 5.000 baris)':'');
  }catch(e){alert('Pencarian periode gagal: '+e.message)}
  finally{button.disabled=false;button.textContent='Tampilkan';}
@@ -149,6 +270,311 @@ document.getElementById('activityType').addEventListener('change',renderEvents);
 document.getElementById('applyPeriod').addEventListener('click',applyPeriod);
 document.getElementById('resetPeriod').addEventListener('click',resetPeriod);
 document.getElementById('exportExcel').addEventListener('click',exportExcel);
-refresh();setInterval(refresh,10000);
+refresh();
+
+async function loadSystemInfo(){
+ const title=document.getElementById('updateTitle'), msg=document.getElementById('updateMessage'), btn=document.getElementById('updateNow');
+ try{const r=await fetch('/api/system-info',{cache:'no-store'});const d=await r.json();if(!r.ok)throw new Error(d.error||'Gagal memeriksa GitHub');
+ document.getElementById('sysVersion').textContent='v'+d.version;document.getElementById('sysBranch').textContent=d.branch;document.getElementById('sysCommit').textContent=d.local_commit;
+ title.textContent=d.update_available?'Pembaruan tersedia':'Dashboard sudah terbaru';msg.textContent=d.update_available?'Commit GitHub: '+d.remote_commit:'Commit lokal sudah sama dengan GitHub';
+ btn.disabled=!d.update_available||!d.working_tree_clean;btn.textContent=d.working_tree_clean?'Update Sekarang':'Commit perubahan lokal dahulu';
+ document.getElementById('changelog').innerHTML=(d.commits||[]).map(c=>'• '+esc(c.sha)+' — '+esc(c.message)+' ('+esc(c.date.slice(0,10))+')').join('<br>')||'Belum ada changelog';
+ }catch(e){title.textContent='Tidak dapat memeriksa update';msg.textContent=e.message;btn.disabled=true;}
+}
+async function runUpdate(){
+ if(!confirm('Update dashboard dari GitHub dan restart service sekarang?'))return;
+ const btn=document.getElementById('updateNow');btn.disabled=true;btn.textContent='Memperbarui…';
+ try{const r=await fetch('/api/update',{method:'POST',headers:{'X-Requested-With':'XMLHttpRequest'}});const d=await r.json();if(!r.ok||!d.ok)throw new Error(d.error||'Update gagal');
+ document.getElementById('updateTitle').textContent=d.message;document.getElementById('updateMessage').textContent='Halaman akan dimuat ulang setelah service aktif kembali.';
+ setTimeout(()=>location.reload(),7000);
+ }catch(e){alert('Update gagal: '+e.message);btn.disabled=false;btn.textContent='Coba Lagi';}
+}
+document.getElementById('checkUpdate').addEventListener('click',loadSystemInfo);
+document.getElementById('updateNow').addEventListener('click',runUpdate);
+loadSystemInfo();
+
+
+// Analisis trafik user VPN menggunakan sesi aktif CCR1009 dan NetFlow.
+let analysisSessions = [];
+
+function formatTraffic(bytes){
+ const n = Number(bytes || 0);
+ if(n < 1024) return n + " B";
+ if(n < 1048576) return (n/1024).toFixed(2) + " KB";
+ if(n < 1073741824) return (n/1048576).toFixed(2) + " MB";
+ return (n/1073741824).toFixed(2) + " GB";
+}
+
+async function loadAnalysisUsers(){
+ const select = document.getElementById('analysisUser');
+ const status = document.getElementById('analysisStatus');
+ select.innerHTML = '<option value="">Memuat pengguna VPN...</option>';
+ status.textContent = 'Menghubungi CCR1009...';
+
+ try{
+  const r = await fetch('/api/routeros-active',{cache:'no-store'});
+  const d = await r.json();
+  if(!r.ok || d.ok !== true) throw new Error(d.error || 'Gagal membaca sesi VPN');
+
+  analysisSessions = d.sessions || [];
+  select.innerHTML = '<option value="">-- Pilih username VPN --</option>';
+
+  analysisSessions.forEach((x,i)=>{
+   const opt = document.createElement('option');
+   opt.value = String(i);
+   opt.textContent = String(x.user) + ' | ' + (x.vpn_ip || '-') + ' | ' + (x.service || '');
+   select.appendChild(opt);
+  });
+
+  status.textContent = analysisSessions.length + ' user online';
+  document.getElementById('analysisNote').textContent =
+   analysisSessions.length ? 'Pilih username, kemudian klik Tampilkan Analisis.' : 'Tidak ada user VPN yang sedang online.';
+ }catch(e){
+  select.innerHTML = '<option value="">Gagal memuat user VPN</option>';
+  status.textContent = 'Gagal';
+  document.getElementById('analysisNote').textContent = e.message;
+ }
+}
+
+async function runUserAnalysis(){
+ const select = document.getElementById('analysisUser');
+ const index = select.value;
+ const rows = document.getElementById('analysisRows');
+
+ if(index === ''){
+  alert('Pilih username VPN terlebih dahulu.');
+  return;
+ }
+
+ const user = analysisSessions[Number(index)];
+ if(!user || !user.vpn_ip){
+  alert('IP VPN pengguna tidak tersedia.');
+  return;
+ }
+
+ const btn = document.getElementById('runAnalysis');
+ btn.disabled = true;
+ btn.textContent = 'Menganalisis...';
+ document.getElementById('analysisStatus').textContent = 'Membaca NetFlow...';
+ document.getElementById('analysisIdentity').textContent = user.user + ' / ' + user.vpn_ip;
+ rows.innerHTML = '<tr><td colspan="7" class="empty">Mengambil data NetFlow...</td></tr>';
+
+ try{
+  const r = await fetch('/api/netflow-user?ip='+encodeURIComponent(user.vpn_ip)+'&limit=5000',{cache:'no-store'});
+  const d = await r.json();
+  if(!r.ok || d.ok !== true) throw new Error(d.error || 'Gagal membaca NetFlow');
+
+  document.getElementById('analysisFlows').textContent = Number(d.flow_count || 0).toLocaleString('id-ID');
+  document.getElementById('analysisTraffic').textContent =
+   '↑ Upload: ' + formatTraffic(d.upload_bytes) +
+   ' | ↓ Download: ' + formatTraffic(d.download_bytes) +
+   ' | Total: ' + formatTraffic(d.total_bytes);
+
+  const flows = d.flows || [];
+  document.getElementById('analysisStatus').textContent = 'Analisis selesai';
+  document.getElementById('analysisNote').textContent =
+   'User: '+user.user+' | IP VPN: '+user.vpn_ip+' | Data flow yang ditampilkan: '+flows.length;
+
+  if(!flows.length){
+   rows.innerHTML = '<tr><td colspan="7" class="empty">Belum ada flow NetFlow untuk IP VPN ini.</td></tr>';
+  }else{
+   rows.innerHTML = flows.map(f=>`<tr>
+    <td>${esc(f.first || '—')}</td>
+    <td><span class="pill ${f.direction === 'UPLOAD' ? 'p-login' : 'p-logout'}">${esc(f.direction || '—')}</span></td>
+    <td>${esc(f.remote_ip || '—')}</td>
+    <td>${esc(f.remote_port ?? '—')}</td>
+    <td>${esc(f.protocol || '—')}</td>
+    <td>${Number(f.packets || 0).toLocaleString('id-ID')}</td>
+    <td>${formatTraffic(f.bytes)}</td>
+   </tr>`).join('');
+  }
+ }catch(e){
+  document.getElementById('analysisStatus').textContent = 'Gagal';
+  document.getElementById('analysisNote').textContent = e.message;
+  rows.innerHTML = '<tr><td colspan="7" class="empty">Gagal mengambil data NetFlow.</td></tr>';
+ }finally{
+  btn.disabled = false;
+  btn.textContent = 'Tampilkan Analisis';
+ }
+}
+
+document.getElementById('reloadAnalysisUsers').addEventListener('click',loadAnalysisUsers);
+document.getElementById('runAnalysis').addEventListener('click',runUserAnalysis);
+document.getElementById('analysisUser').addEventListener('change',()=>{
+ const x = analysisSessions[Number(document.getElementById('analysisUser').value)];
+ document.getElementById('analysisIdentity').textContent = x ? x.user+' / '+x.vpn_ip : '—';
+});
+
+
+const USER_CSRF = {{ csrf_token|tojson }};
+
+function userMessage(message, type='') {
+ const el = document.getElementById('userMessage');
+ if (!el) return;
+ el.textContent = message;
+ el.className = 'user-message ' + type;
+}
+
+async function userRequest(url, method='GET', data=null) {
+ const headers = {};
+ if (data !== null) headers['Content-Type'] = 'application/json';
+ if (method !== 'GET') headers['X-CSRF-Token'] = USER_CSRF;
+
+ const response = await fetch(url, {
+  method, headers,
+  body: data === null ? undefined : JSON.stringify(data),
+  credentials: 'same-origin'
+ });
+ const result = await response.json().catch(()=>({ok:false,error:'Respons server tidak valid.'}));
+ if (!response.ok || !result.ok) throw new Error(result.error || 'Permintaan gagal.');
+ return result;
+}
+
+async function loadUsers() {
+ const tbody = document.getElementById('userRows');
+ if (!tbody) return;
+ tbody.innerHTML = '<tr><td colspan="5" class="empty">Memuat user...</td></tr>';
+
+ try {
+  const result = await userRequest('/api/users');
+  document.getElementById('userCount').textContent = result.users.length + ' user';
+
+  if (!result.users.length) {
+   tbody.innerHTML = '<tr><td colspan="5" class="empty">Belum ada user.</td></tr>';
+   return;
+  }
+
+  tbody.innerHTML = result.users.map(u => {
+   const active = Number(u.is_active) === 1;
+   const last = u.last_login ? esc(u.last_login) : 'Belum pernah login';
+   return `<tr>
+    <td><strong>${esc(u.username)}</strong></td>
+    <td>${u.role === 'admin' ? 'Admin' : 'Operator'}</td>
+    <td><span class="pill ${active ? 'p-login' : 'p-logout'}">${active ? 'Aktif' : 'Nonaktif'}</span></td>
+    <td>${last}</td>
+    <td><div class="user-actions">
+     <button type="button" class="secondary" data-user-action="edit" data-id="${u.id}" data-username="${esc(u.username)}" data-role="${u.role}" data-active="${active}">Edit</button>
+     <button type="button" class="secondary" data-user-action="password" data-id="${u.id}" data-username="${esc(u.username)}">Reset Password</button>
+     <button type="button" class="secondary" data-user-action="toggle" data-id="${u.id}" data-active="${active}">${active ? 'Nonaktifkan' : 'Aktifkan'}</button>
+     <button type="button" data-user-action="delete" data-id="${u.id}" data-username="${esc(u.username)}">Hapus</button>
+    </div></td>
+   </tr>`;
+  }).join('');
+ } catch (e) {
+  tbody.innerHTML = `<tr><td colspan="5" class="empty">${esc(e.message)}</td></tr>`;
+ }
+}
+
+document.getElementById('addUserForm').addEventListener('submit', async e => {
+ e.preventDefault();
+ const btn = document.getElementById('addUserButton');
+ btn.disabled = true;
+ try {
+  await userRequest('/api/users', 'POST', {
+   username: document.getElementById('newUsername').value.trim(),
+   password: document.getElementById('newPassword').value,
+   role: document.getElementById('newRole').value
+  });
+  e.target.reset();
+  userMessage('User berhasil ditambahkan.', 'success');
+  await loadUsers();
+ } catch (err) {
+  userMessage(err.message, 'error');
+ } finally {
+  btn.disabled = false;
+ }
+});
+
+document.getElementById('reloadUsers').addEventListener('click', loadUsers);
+
+document.getElementById('userRows').addEventListener('click', async e => {
+ const btn = e.target.closest('button[data-user-action]');
+ if (!btn) return;
+
+ const id = Number(btn.dataset.id);
+ const action = btn.dataset.userAction;
+ const username = btn.dataset.username || '';
+
+ try {
+  if (action === 'edit') {
+   const nextUsername = prompt('Username:', username);
+   if (nextUsername === null) return;
+   const nextRole = prompt('Role: admin atau operator', btn.dataset.role);
+   if (nextRole === null) return;
+   if (!['admin','operator'].includes(nextRole.trim().toLowerCase())) {
+    throw new Error('Role harus admin atau operator.');
+   }
+   await userRequest('/api/users/' + id, 'PATCH', {
+    username: nextUsername.trim(),
+    role: nextRole.trim().toLowerCase(),
+    is_active: btn.dataset.active === 'true'
+   });
+  } else if (action === 'password') {
+   const password = prompt('Password baru untuk ' + username + ' (minimal 10 karakter):');
+   if (password === null) return;
+   if (password.length < 10) throw new Error('Password minimal 10 karakter.');
+   await userRequest('/api/users/' + id, 'PATCH', {password});
+  } else if (action === 'toggle') {
+   const active = btn.dataset.active !== 'true';
+   if (!confirm((active ? 'Aktifkan' : 'Nonaktifkan') + ' akun ' + username + '?')) return;
+   await userRequest('/api/users/' + id, 'PATCH', {is_active:active});
+  } else if (action === 'delete') {
+   if (!confirm('Hapus akun ' + username + '? Tindakan ini tidak dapat dibatalkan.')) return;
+   await userRequest('/api/users/' + id, 'DELETE');
+  }
+
+  userMessage('Perubahan berhasil disimpan.', 'success');
+  await loadUsers();
+ } catch (err) {
+  userMessage(err.message, 'error');
+  alert(err.message);
+ }
+});
+
+
+// Navigasi halaman: setiap menu hanya menampilkan bagian yang dipilih.
+function showView(view){
+ const map = {
+  overview:['overview'],
+  activity:['overview','activity'],
+  analysis:['analysis'],
+  devices:['devices'],
+  system:['system'],
+  update:['update'],
+  settings:['settings'],
+  about:['about']
+ };
+ const titles = {
+  overview:['Dashboard','Ringkasan status VPN dan aktivitas terbaru'],
+  activity:['Log Aktivitas VPN','Riwayat login dan logout VPN dari seluruh perangkat/site'],
+  analysis:['Analisis User VPN','Analisis tujuan koneksi dan trafik setiap pengguna VPN'],
+  devices:['Perangkat / Site','Sesi VPN aktif dari CCR1009'],
+  system:['Informasi Sistem','Status aplikasi dan repository'],
+  update:['Update Aplikasi','Pembaruan aplikasi dari GitHub'],
+  settings:['Pengaturan','Manajemen akun dan hak akses dashboard'],
+  about:['Tentang','Informasi Office VPN Monitoring']
+ };
+ const visible = map[view] || map.overview;
+ document.querySelectorAll('.content > section').forEach(el=>{
+  el.classList.toggle('view-hidden',!visible.includes(el.id));
+  if(el.id==='devices' || el.id==='system' || el.id==='update' || el.id==='about' || el.id==='analysis' || el.id==='settings'){
+   el.classList.toggle('visible',visible.includes(el.id));
+  }
+ });
+ document.querySelectorAll('.nav a[data-view]').forEach(a=>a.classList.toggle('active',a.dataset.view===view));
+ const t = titles[view] || titles.overview;
+ document.getElementById('pageHeading').textContent = t[0];
+ document.getElementById('pageSub').textContent = t[1];
+
+ if(view==='analysis' && analysisSessions.length===0) loadAnalysisUsers();
+ if(view==='settings') loadUsers();
+}
+document.querySelectorAll('.nav a[data-view]').forEach(a=>a.addEventListener('click',e=>{
+ e.preventDefault();
+ showView(a.dataset.view);
+}));
+document.getElementById('checkUpdate2').addEventListener('click',loadSystemInfo);
+showView('overview');
 </script>
-</body></html>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071629">
+<title>Login - Office VPN Monitoring</title>
+<style>
+*{box-sizing:border-box}
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#edf5ff}
+body{margin:0;min-height:100vh;background:#071629;display:grid;place-items:center;padding:24px}
+.login-wrap{width:min(1120px,100%);min-height:650px;display:grid;grid-template-columns:42% 58%;background:#0a1c31;border:1px solid #1a3857;border-radius:22px;overflow:hidden;box-shadow:0 30px 90px #0008}
+.left{padding:48px;display:flex;flex-direction:column;background:linear-gradient(145deg,#102b49,#08182b)}
+.logo{width:65px;height:72px;margin-bottom:26px}
+h1{font-size:26px;line-height:1.2;margin:0 0 8px}
+.subtitle{color:#9bb3ce;font-size:13px;margin-bottom:35px}
+label{display:block;font-size:12px;color:#c8d8ea;margin:18px 0 8px}
+input{width:100%;height:48px;padding:0 14px;border:1px solid #294765;border-radius:9px;background:#071629;color:white;font-size:14px;outline:none}
+input:focus{border-color:#40aaff;box-shadow:0 0 0 3px #40aaff20}
+button{width:100%;height:49px;margin-top:25px;border:0;border-radius:9px;background:linear-gradient(100deg,#2375eb,#328fe9);color:white;font-weight:700;font-size:14px;cursor:pointer}
+button:hover{filter:brightness(1.12)}
+.error{padding:11px 13px;border:1px solid #8c3547;background:#421d2b;color:#ffb6c1;border-radius:8px;font-size:12px;margin-top:16px}
+.license{margin-top:auto;padding-top:40px;color:#91a8c2;font-size:11px}
+.right{padding:60px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(ellipse at 80% 10%,#164c79 0,transparent 45%),linear-gradient(145deg,#0c2340,#081629)}
+.eyebrow{color:#58b5ff;font-size:11px;letter-spacing:3px;font-weight:800}
+.right h2{font-size:39px;line-height:1.12;max-width:560px;margin:17px 0}
+.right h2 span{color:#55b6ff}
+.description{max-width:520px;color:#a8bdd4;line-height:1.8;font-size:14px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:35px 0}
+.feature{padding:17px 13px;border:1px solid #244665;background:#102a45;border-radius:12px}
+.feature b{display:block;font-size:12px;margin-bottom:7px}
+.feature small{color:#9eb5ce;font-size:10px;line-height:1.5}
+.right-foot{border-top:1px solid #25415c;padding-top:22px;color:#9db3ca;font-size:11px;line-height:2}
+@media(max-width:800px){body{padding:12px}.login-wrap{grid-template-columns:1fr}.left{padding:32px;min-height:560px}.right{padding:35px 30px}.right h2{font-size:30px}.features{gap:8px}.feature{padding:13px 9px}}
+@media(max-width:420px){.features{grid-template-columns:1fr}.left{padding:26px}.right{padding:30px 24px}}
+</style>
+</head>
+<body>
+<div class="login-wrap">
+<section class="left">
+<svg class="logo" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M32 3 57 13v19c0 17-10.4 29.4-25 36C17.4 61.4 7 49 7 32V13L32 3Z" fill="#2563eb" stroke="#65b9ff" stroke-width="2"/>
+<path d="M23 31v-5a9 9 0 0 1 18 0v5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<rect x="19" y="30" width="26" height="21" rx="5" fill="white"/>
+<circle cx="32" cy="40" r="3" fill="#1762b5"/>
+</svg>
+<h1>Selamat Datang</h1>
+<div class="subtitle">Silakan masuk untuk mengakses dashboard monitoring.</div>
+<form method="post" action="/login">
+<label for="username">Username</label>
+<input id="username" name="username" autocomplete="username" placeholder="Masukkan username" required autofocus>
+<label for="password">Password</label>
+<input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+<button type="submit">Masuk ke Dashboard&nbsp; →</button>
+</form>
+<div class="license">Office VPN Monitoring<br>Built with ❤️</div>
+</section>
+<section class="right">
+<div class="eyebrow">SECURE NETWORK VISIBILITY</div>
+<h2>OFFICE VPN<br><span>MONITORING</span></h2>
+<p class="description">Pusat pemantauan koneksi VPN, aktivitas pengguna, dan analisis trafik jaringan kantor dalam satu dashboard terintegrasi.</p>
+<div class="features">
+<div class="feature"><b>◈ User Friendly</b><small>Tampilan sederhana dan mudah digunakan.</small></div>
+<div class="feature"><b>▦ Data Terpusat</b><small>Informasi VPN terkumpul dalam satu tempat.</small></div>
+<div class="feature"><b>⬡ Secure</b><small>Akses dashboard dilindungi autentikasi.</small></div>
+</div>
+<div class="right-foot">
+<strong>FITUR MONITORING</strong><br>
+Real-time VPN Status &nbsp; • &nbsp; Log Aktivitas<br>
+User Traffic Analysis &nbsp; • &nbsp; NetFlow Monitoring
+</div>
+</section>
+</div>
+</body>
+</html>
