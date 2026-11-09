@@ -9,7 +9,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 70% -20%,#12345a 0,transparent 40%),var(--bg);color:var(--text);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif}
 .app{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:255px;background:linear-gradient(180deg,#06172b,#041225);border-right:1px solid #17324e;display:flex;flex-direction:column;z-index:10}.brand{display:flex;align-items:center;gap:13px;padding:22px 20px 18px;border-bottom:1px solid #17324e}.logo{width:55px;height:60px;flex:none;display:grid;place-items:center;filter:drop-shadow(0 8px 18px #167be866)}.logo svg{width:55px;height:60px}.brand h1{font-size:18px;line-height:1.15;margin:0;font-weight:750}.brand small{display:inline-block;color:#a8c9ed;background:#102c4a;border-radius:20px;padding:3px 9px;margin-top:8px;font-size:11px}.nav{padding:12px 8px;display:grid;gap:3px}.nav a{color:#d6e4f5;text-decoration:none;padding:11px 13px;border-radius:9px;display:flex;align-items:center;gap:13px;border-left:3px solid transparent;font-size:13px}.nav a:hover{background:#102b48}.nav a.active{background:linear-gradient(90deg,#12365b,#102842);border-left-color:#36a5ff;color:white}.nav .ico{width:18px;text-align:center;color:#b8d2ef;font-size:16px}.nav-sep{height:1px;background:#17324e;margin:10px 12px}.side-bottom{margin-top:auto;padding:18px 20px 22px;color:#9fb4ce;font-size:11px}.side-art{height:100px;display:grid;place-items:center;color:#248fe8;font-size:52px;text-shadow:0 0 24px #168bff99}.online-tag{display:table;margin:10px auto 0;background:#063c32;color:#48e7ae;padding:5px 14px;border-radius:20px;font-size:11px}
 .main{margin-left:255px;min-width:0}.topbar{height:82px;padding:0 25px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #15314d;background:#06172be8;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}.page-title{display:flex;align-items:center;gap:13px}.title-icon{width:40px;height:40px;border-radius:12px;background:#12365a;color:#52b4ff;display:grid;place-items:center;font-size:19px}.page-title h2{margin:0;font-size:20px}.page-title p{margin:2px 0 0;color:var(--muted);font-size:12px}.top-actions{display:flex;align-items:center;gap:10px}.last-update{border:1px solid #1a3b5b;border-radius:25px;padding:8px 13px;color:#64baff;font-size:12px;white-space:nowrap}.live{display:flex;align-items:center;gap:8px;background:#063a31;color:#51e7ac;padding:8px 13px;border-radius:25px;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#12d58a;box-shadow:0 0 0 4px #12d58a20}
-.content{padding:22px 24px 35px;max-width:1800px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 14px}.section-head h3{margin:0;font-size:16px}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}.card{min-height:105px;padding:15px 17px;border-radius:14px;border:1px solid #173956;background:linear-gradient(145deg,#0d2944,#0a1c31);display:flex;align-items:center;gap:14px;box-shadow:0 10px 28px #0002}.card-icon{width:57px;height:57px;border-radius:50%;display:grid;place-items:center;font-size:24px;flex:none}.c-green{background:#064b40;color:#24e3a0}.c-red{background:#54202e;color:#ff6478}.c-blue{background:#103e69;color:#42b3ff}.c-purple{background:#34215f;color:#bb91ff}.card-label{color:#d6e4f5;font-size:12px}.card-value{font-size:29px;font-weight:750;line-height:1.2;margin-top:4px}.card-note{font-size:11px;color:#9cb2cb;margin-top:3px}
+.content{padding:22px 24px 35px;max-width:1800px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 14px}.section-head h3{margin:0;font-size:16px}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}.card{min-height:105px;padding:15px 17px;border-radius:14px;border:1px solid #173956;background:linear-gradient(145deg,#0d2944,#0a1c31);display:flex;align-items:center;gap:14px;box-shadow:0 10px 28px #0002}.card-icon{width:57px;height:57px;border-radius:50%;display:grid;place-items:center;font-size:24px;flex:none}.c-green{background:#064b40;color:#24e3a0}.c-red{background:#54202e;color:#ff6478}.c-blue{background:#103e69;color:#42b3ff}.c-purple{background:#34215f;color:#bb91ff}.card-label{color:#d6e4f5;font-size:12px}.card-value{font-size:29px;font-weight:750;line-height:1.2;margin-top:4px}.card-note{font-size:11px;color:#9cb2cb;margin-top:3px}.cards .card{cursor:pointer!important;pointer-events:auto!important;transition:transform .18s,border-color .18s,filter .18s}.cards .card:hover{transform:translateY(-3px);border-color:#39a5ff;filter:brightness(1.12)}.cards .card:focus-visible{outline:2px solid #39a5ff;outline-offset:3px}
 .panel{background:linear-gradient(145deg,#0b2037,#091a2e);border:1px solid #173956;border-radius:13px;box-shadow:0 12px 30px #0002;padding:17px;min-width:0;margin-bottom:18px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.panel-head h3{font-size:15px;margin:0}.count{font-size:11px;color:#b7cce3;background:#18334f;border-radius:20px;padding:4px 9px}.toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}.searchbox{position:relative;flex:1;min-width:220px}.searchbox span{position:absolute;left:13px;top:8px;color:#9bb0c9;font-size:17px}input,select{height:39px;border:1px solid #254563;border-radius:9px;background:#07182b;color:var(--text);outline:none;font:inherit;font-size:12px}input{width:100%;padding:0 12px 0 36px}select{padding:0 28px 0 11px}input:focus,select:focus{border-color:#42aaff;box-shadow:0 0 0 3px #42aaff20}.datefield{display:flex;align-items:center;gap:7px;color:#a9bfd7;font-size:11px}.datefield input{width:auto;padding:0 9px;min-width:145px}.result-note{color:#9bb0c9;font-size:11px;margin:8px 0;text-align:right}button{height:39px;padding:0 15px;border:1px solid #277be2;border-radius:9px;background:linear-gradient(135deg,#2368e8,#3159e7);color:white;font:inherit;font-size:12px;font-weight:700;cursor:pointer}button.green-btn{background:linear-gradient(135deg,#079e72,#05b783);border-color:#08b783}button.secondary{background:#142b45;border-color:#294966;color:#e6f1ff}button:disabled{opacity:.5;cursor:not-allowed}button:hover{filter:brightness(1.12)}
 .scroll{overflow:auto;max-height:610px;border-radius:9px}table{width:100%;border-collapse:collapse;white-space:nowrap}th,td{text-align:left;padding:10px 11px;border-bottom:1px solid #183653}th{position:sticky;top:0;background:#102943;color:#c6d8ec;font-size:11px;z-index:1}td{font-size:12px}tbody tr:nth-child(even){background:#07182a66}tbody tr:hover{background:#143451}.pill{display:inline-flex;align-items:center;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:750}.p-login{background:#07563f;color:#65f0b8}.p-logout{background:#662735;color:#ff9cab}.p-failed{background:#633d13;color:#ffd17a}.empty{text-align:center;color:var(--muted);padding:25px 8px}.system-panel{display:none}.system-panel.visible{display:block}.sysgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.sysitem{background:#07182b;border:1px solid #1b3a58;border-radius:10px;padding:12px}.sysitem small{display:block;color:#9bb0c9;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.sysitem strong{display:block;margin-top:4px;overflow-wrap:anywhere}.update-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:13px;border:1px solid #805d1c;background:#3a2b102e;border-radius:10px;margin-top:12px}.commit-list{font-size:12px;color:#a8bdd4;line-height:1.8}.view-hidden{display:none!important}.analysis-panel{display:none}.analysis-panel.visible{display:block}.session-panel{display:none}.session-panel.visible{display:block}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8da5bf;font-size:11px;margin-top:15px;padding:12px 3px}.hidden-section{display:none}.hidden-section.visible{display:block}.status-text{font-size:11px;color:#9bb0c9}
 @media(max-width:1100px){.sidebar{width:215px}.main{margin-left:215px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.last-update{display:none}}
@@ -26,6 +26,30 @@
 .user-message.error{color:#ff8795}
 .user-message.success{color:#50e7ad}
 @media(max-width:760px){.user-form-grid{grid-template-columns:1fr}}
+
+
+/* Smart NOC overview */
+.noc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:0 0 17px}
+.noc-tile{background:linear-gradient(145deg,#102b47,#091b30);border:1px solid #1b405f;border-radius:13px;padding:15px;min-width:0}
+.noc-tile small{display:block;color:#9bb0c9;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.noc-tile strong{display:block;font-size:25px;line-height:1.25;margin:7px 0 3px;font-weight:750}
+.noc-tile .sub{font-size:11px;color:#9bb0c9;overflow-wrap:anywhere}
+.noc-meter{height:6px;background:#183653;border-radius:9px;overflow:hidden;margin-top:10px}
+.noc-meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,#2f9bff,#35d5ee);border-radius:9px;transition:width .4s}
+.noc-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(250px,1fr);gap:14px;margin-bottom:18px}
+.noc-chart{background:#0b2037;border:1px solid #173956;border-radius:13px;padding:16px;min-width:0}
+.noc-chart-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:9px}
+.noc-chart-head h3{font-size:14px;margin:0}
+.noc-legend{font-size:10px;color:#9bb0c9;display:flex;gap:13px;flex-wrap:wrap}
+.noc-legend span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#39a5ff;margin-right:5px}
+.noc-legend span:last-child:before{background:#10d58a}
+#nocTrafficChart{display:block;width:100%;height:170px}
+.noc-status-list{display:grid;gap:9px}
+.noc-status-row{display:flex;justify-content:space-between;gap:12px;padding:10px 11px;border:1px solid #1b3a58;background:#07182b;border-radius:9px;font-size:12px}
+.noc-status-row span{color:#9bb0c9}
+.noc-good{color:#45e4aa!important}.noc-bad{color:#ff7889!important}.noc-warn{color:#ffd17a!important}
+@media(max-width:1100px){.noc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.noc-layout{grid-template-columns:1fr}.noc-grid{gap:9px}.noc-tile{padding:12px}.noc-tile strong{font-size:21px}}
 
 </style>
 </head>
@@ -49,14 +73,46 @@
  <div class="side-bottom"><div class="side-art">▣</div><div style="text-align:center">v1.0.0 &nbsp;|&nbsp; Office VPN Monitoring</div><div class="online-tag">● Online</div></div>
 </aside>
 <div class="main">
- <header class="topbar"><div class="page-title"><div class="title-icon">▣</div><div><h2 id="pageHeading">Log Aktivitas VPN</h2><p id="pageSub">Riwayat login dan logout VPN dari seluruh perangkat/site</p></div></div><div class="top-actions"><div class="last-update">⟳ <span id="refreshState">Menghubungkan…</span></div><div class="live"><i class="dot"></i> Live <span id="clock"></span></div><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a></div></header>
+ <header class="topbar"><div class="page-title"><div class="title-icon">▣</div><div><h2 id="pageHeading">Log Aktivitas VPN</h2><p id="pageSub">Riwayat login dan logout VPN dari seluruh perangkat/site</p></div></div><div class="top-actions"><div class="last-update">⟳ <span id="refreshState">Menghubungkan…</span></div><div class="live"><i class="dot"></i> Live <span id="clock"></span></div><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a></div></header>
  <main class="content">
   <section id="overview">
+
+   <div class="section-head"><div><h3>Network Operations Center</h3><div class="status-text">Pemantauan server dan konektivitas router secara berkala</div></div><span class="count" id="nocUpdated">Menunggu data…</span></div>
+   <div class="noc-grid">
+    <div class="noc-tile"><small>CPU Server</small><strong id="nocCpu">—%</strong><div class="sub" id="nocHost">Host: —</div><div class="noc-meter"><span id="nocCpuBar"></span></div></div>
+    <div class="noc-tile"><small>RAM Terpakai</small><strong id="nocRam">—%</strong><div class="sub" id="nocRamDetail">— / —</div><div class="noc-meter"><span id="nocRamBar"></span></div></div>
+    <div class="noc-tile"><small>Disk Root</small><strong id="nocDisk">—%</strong><div class="sub" id="nocDiskDetail">— / —</div><div class="noc-meter"><span id="nocDiskBar"></span></div></div>
+    <div class="noc-tile"><small>Uptime Server</small><strong id="nocUptime">—</strong><div class="sub" id="nocBoot">Boot: —</div></div>
+   </div>
+   <div class="noc-layout">
+    <div class="noc-chart">
+     <div class="noc-chart-head"><h3>Bandwidth Server</h3><div class="noc-legend"><span>Download</span><span>Upload</span></div></div>
+     <div class="sub" id="nocInterface">Interface: — · Mbps</div>
+     <svg id="nocTrafficChart" viewBox="0 0 700 170" role="img" aria-label="Grafik bandwidth server">
+      <g stroke="#1b3a58" stroke-width="1"><path d="M35 15H690M35 55H690M35 95H690M35 135H690"/></g>
+      <polyline id="nocDownloadLine" points="" fill="none" stroke="#39a5ff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <polyline id="nocUploadLine" points="" fill="none" stroke="#10d58a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="5" y="18" fill="#9bb0c9" font-size="10" id="nocChartMax">—</text>
+      <text x="35" y="160" fill="#9bb0c9" font-size="10">60 detik terakhir</text>
+     </svg>
+     <div class="sub" id="nocTrafficNow">Download: — Mbps · Upload: — Mbps</div>
+    </div>
+    <div class="noc-chart">
+     <div class="noc-chart-head"><h3>Kesehatan Koneksi</h3><span class="count" id="nocOverall">Memeriksa…</span></div>
+     <div class="noc-status-list">
+      <div class="noc-status-row"><span>Router CCR1009</span><strong id="nocRouterState">Memeriksa…</strong></div>
+      <div class="noc-status-row"><span>Latency Router</span><strong id="nocLatency">—</strong></div>
+      <div class="noc-status-row"><span>VPN Online</span><strong id="nocVpnOnline">—</strong></div>
+      <div class="noc-status-row"><span>VPN Offline</span><strong id="nocVpnOffline">—</strong></div>
+      <div class="noc-status-row"><span>Server Interface</span><strong id="nocIfState">—</strong></div>
+     </div>
+    </div>
+   </div>
    <div class="cards">
-    <div class="card"><div class="card-icon c-green">↪</div><div><div class="card-label">VPN Online</div><div class="card-value green" id="online">—</div><div class="card-note">Sesi aktif saat ini</div></div></div>
-    <div class="card"><div class="card-icon c-blue">⇧</div><div><div class="card-label">Login Hari Ini</div><div class="card-value" id="logins">—</div><div class="card-note">Login berhasil</div></div></div>
-    <div class="card"><div class="card-icon c-red">⇩</div><div><div class="card-label">Gagal Autentikasi</div><div class="card-value red" id="fails">—</div><div class="card-note">Percobaan gagal hari ini</div></div></div>
-    <div class="card"><div class="card-icon c-purple">◎</div><div><div class="card-label">Total Aktivitas</div><div class="card-value" id="total">—</div><div class="card-note">Event terbaca dari syslog</div></div></div>
+    <div class="card" role="button" tabindex="0" style="cursor:pointer!important" onclick="showView('devices');loadL2tpOnline()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showView('devices');loadL2tpOnline()}"><div class="card-icon c-green">↪</div><div><div class="card-label">VPN Online</div><div class="card-value green" id="online">—</div><div class="card-note">Sesi aktif saat ini</div></div></div>
+    <div class="card" role="button" tabindex="0" style="cursor:pointer!important" onclick="openActivityFromCard('login',true)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openActivityFromCard('login',true)}"><div class="card-icon c-blue">⇧</div><div><div class="card-label">Login Hari Ini</div><div class="card-value" id="logins">—</div><div class="card-note">Login berhasil</div></div></div>
+    <div class="card" role="button" tabindex="0" style="cursor:pointer!important" onclick="openActivityFromCard('failed',true)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openActivityFromCard('failed',true)}"><div class="card-icon c-red">⇩</div><div><div class="card-label">Gagal Autentikasi</div><div class="card-value red" id="fails">—</div><div class="card-note">Percobaan gagal hari ini</div></div></div>
+    <div class="card" role="button" tabindex="0" style="cursor:pointer!important" onclick="openActivityFromCard('all',false)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openActivityFromCard('all',false)}"><div class="card-icon c-purple">◎</div><div><div class="card-label">Total Aktivitas</div><div class="card-value" id="total">—</div><div class="card-note">Event terbaca dari syslog</div></div></div>
    </div>
   </section>
   <section id="activity" class="panel">
@@ -64,7 +120,7 @@
    <div class="toolbar"><div class="searchbox"><span>⌕</span><input id="activitySearch" type="search" placeholder="Cari user / site / IP / provider…" autocomplete="off"></div><select id="activityType" aria-label="Filter aktivitas"><option value="all">Semua Aktivitas</option><option value="login">Login berhasil</option><option value="logout">Logout</option><option value="failed">Gagal autentikasi</option></select></div>
    <div class="toolbar"><label class="datefield">Dari <input id="startDate" type="date" aria-label="Tanggal mulai"></label><label class="datefield">Sampai <input id="endDate" type="date" aria-label="Tanggal akhir"></label><button id="applyPeriod" type="button">Tampilkan</button><button id="resetPeriod" type="button" class="secondary">Reset</button><button id="exportExcel" type="button" class="green-btn">⇩ Export Excel</button></div>
    <div class="result-note" id="resultNote">Menampilkan aktivitas terbaru</div>
-   <div class="scroll"><table><thead><tr><th>Waktu (WIB)</th><th>User / Site</th><th>Aktivitas</th><th>IP VPN</th><th>IP Asal (Publik)</th><th>Provider (ISP)</th><th>Negara</th></tr></thead><tbody id="events"><tr><td colspan="7" class="empty">Memuat data…</td></tr></tbody></table></div>
+   <div class="scroll"><table><thead><tr><th>Waktu (WIB)</th><th>User / Site</th><th>Aktivitas</th><th>IP VPN</th><th>IP Asal (Publik)</th><th>IP Tujuan / Server yang Diakses</th><th>Provider (ISP)</th><th>Negara</th></tr></thead><tbody id="events"><tr><td colspan="8" class="empty">Memuat data…</td></tr></tbody></table></div>
   </section>
   <section id="analysis" class="panel analysis-panel view-hidden">
    <div class="panel-head">
@@ -77,6 +133,7 @@
     </select>
     <button type="button" class="secondary" id="reloadAnalysisUsers">Muat Ulang User</button>
     <button type="button" id="runAnalysis">Tampilkan Analisis</button>
+    <button type="button" class="secondary" id="exportAnalysis" disabled>Export Excel</button>
    </div>
    <div class="sysgrid" style="margin-bottom:14px">
     <div class="sysitem"><small>Username / IP VPN</small><strong id="analysisIdentity">—</strong></div>
@@ -86,13 +143,13 @@
    <div class="result-note" id="analysisNote">Pilih user VPN yang sedang online.</div>
    <div class="scroll">
     <table>
-     <thead><tr><th>Waktu</th><th>Arah</th><th>IP Lawan</th><th>Port</th><th>Protokol</th><th>Paket</th><th>Traffic</th></tr></thead>
-     <tbody id="analysisRows"><tr><td colspan="7" class="empty">Belum ada analisis.</td></tr></tbody>
+     <thead><tr><th>Waktu</th><th>Arah</th><th>IP Lawan</th><th>Port</th><th>Protokol</th><th>IP Tujuan / Server yang Diakses</th><th>Traffic</th></tr></thead>
+     <tbody id="analysisRows"><tr><td colspan="8" class="empty">Belum ada analisis.</td></tr></tbody>
     </table>
    </div>
    <p class="status-text" style="margin-top:12px">Catatan: NetFlow menampilkan IP tujuan, port, protokol, waktu, paket, dan volume data. Konten halaman HTTPS tidak dapat dibaca dari NetFlow saja.</p>
   </section>
-  <section id="devices" class="panel session-panel"><div class="panel-head"><div><h3>VPN Sedang Online / Perangkat</h3><div class="status-text">Sesi aktif yang terdeteksi dari log</div></div><span class="count" id="sessionCount">0 sesi</span></div><div class="scroll"><table><thead><tr><th>Username</th><th>IP VPN</th><th>IP Asal</th><th>Waktu Login</th></tr></thead><tbody id="sessions"><tr><td colspan="4" class="empty">Memuat data…</td></tr></tbody></table></div></section>
+  <section id="devices" class="panel session-panel"><div class="panel-head"><div><h3>User L2TP Online</h3><div class="status-text">Sesi aktif langsung dari CCR1009</div></div><span class="count" id="sessionCount">Memuat…</span></div><div class="scroll"><table><thead><tr><th>Status</th><th>Username</th><th>IP VPN</th><th>IP Tujuan / Server</th><th>Uptime</th></tr></thead><tbody id="sessions"><tr><td colspan="5" class="empty">Memuat user L2TP…</td></tr></tbody></table></div></section>
   <section id="system" class="panel system-panel"><div class="panel-head"><div><h3>Informasi Sistem</h3><div class="status-text">Versi aplikasi dan status repository</div></div><button id="checkUpdate" type="button" class="secondary">Periksa Update</button></div><div class="sysgrid"><div class="sysitem"><small>Versi</small><strong id="sysVersion">Memuat…</strong></div><div class="sysitem"><small>Branch</small><strong id="sysBranch">—</strong></div><div class="sysitem"><small>Commit lokal</small><strong id="sysCommit">—</strong></div></div></section>
   <section id="update" class="panel system-panel"><div class="panel-head"><div><h3>Update Aplikasi</h3><div class="status-text">Pembaruan resmi dari GitHub</div></div><button id="checkUpdate2" type="button" class="secondary">Periksa Update</button></div><div class="update-banner"><div><strong id="updateTitle">Memeriksa pembaruan…</strong><div class="status-text" id="updateMessage">Menghubungi GitHub repository irfannjt/office-vpn-monitoring</div></div><button id="updateNow" type="button" disabled>Update Sekarang</button></div><div style="margin-top:13px"><strong style="font-size:12px">Changelog terbaru</strong><div id="changelog" class="commit-list">Memuat riwayat perubahan…</div></div><div style="margin-top:13px"><strong style="font-size:12px">Update manual via SSH</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#07182b;border:1px solid #1b3a58;border-radius:9px;padding:12px;color:#86efac;font-size:11px">cd /opt/server-log-vpn-dashboard &amp;&amp; git pull --ff-only origin main
 systemctl restart server-log-vpn-dashboard</pre></div></section>
@@ -115,8 +172,8 @@ systemctl restart server-log-vpn-dashboard</pre></div></section>
        <input id="newUsername" type="text" maxlength="100" required autocomplete="off" placeholder="Username baru">
       </div>
       <div class="user-field">
-       <label for="newPassword">Password (minimal 10 karakter)</label>
-       <input id="newPassword" type="password" minlength="10" required autocomplete="new-password" placeholder="Password">
+       <label for="newPassword">Password (minimal 6 karakter)</label>
+       <input id="newPassword" type="password" minlength="6" required autocomplete="new-password" placeholder="Password">
       </div>
       <div class="user-field">
        <label for="newRole">Role</label>
@@ -149,6 +206,78 @@ systemctl restart server-log-vpn-dashboard</pre></div></section>
       <tr><td colspan="5" class="empty">Memuat user...</td></tr>
      </tbody>
     </table>
+
+   <div class="panel" id="routerManagementPanel" style="background:#07182b;margin-top:18px">
+    <div class="panel-head">
+     <div>
+      <h3>Manajemen Router MikroTik</h3>
+      <div class="status-text">Tambah dan pilih router untuk monitoring VPN</div>
+     </div>
+     <button type="button" class="secondary" id="reloadRouters">Muat Ulang</button>
+    </div>
+
+    <form id="addRouterForm">
+     <div class="user-form-grid">
+      <div class="user-field">
+       <label for="routerName">Nama Router</label>
+       <input id="routerName" maxlength="100" required placeholder="Contoh: RB1100AHx4">
+      </div>
+      <div class="user-field">
+       <label for="routerHost">IP Address / Host</label>
+       <input id="routerHost" maxlength="255" required placeholder="Contoh: 192.168.5.36">
+      </div>
+      <div class="user-field">
+       <label for="routerPort">Port API RouterOS</label>
+       <input id="routerPort" type="number" min="1" max="65535" value="8728" required>
+      </div>
+      <div class="user-field">
+       <label for="routerType">Jenis Koneksi</label>
+       <select id="routerType">
+        <option value="VPN">VPN</option>
+        <option value="PUBLIC_IP">Public IP</option>
+       </select>
+      </div>
+      <div class="user-field">
+       <label for="routerUsername">Username API</label>
+       <input id="routerUsername" maxlength="100" required autocomplete="off">
+      </div>
+      <div class="user-field">
+       <label for="routerPassword">Password API</label>
+       <input id="routerPassword" type="password" required autocomplete="new-password">
+      </div>
+      <div class="user-field" style="grid-column:1/-1">
+       <label for="routerDescription">Keterangan (opsional)</label>
+       <input id="routerDescription" maxlength="255" placeholder="Lokasi atau fungsi router">
+      </div>
+     </div>
+
+     <div style="display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px">
+      <button type="button" class="secondary" id="testRouterButton">Test Connection</button>
+      <button type="submit" id="saveRouterButton">+ Simpan Router</button>
+     </div>
+    </form>
+
+    <div id="routerMessage" class="user-message" aria-live="polite"></div>
+    <div id="routerTestResult" class="status-text" style="margin-top:8px"></div>
+
+    <div class="panel-head" style="margin-top:20px">
+     <div>
+      <h3>Daftar Router</h3>
+      <div class="status-text">Router yang sudah tersimpan</div>
+     </div>
+     <span class="count" id="routerCount">0 router</span>
+    </div>
+    <div class="scroll">
+     <table>
+      <thead>
+       <tr><th>Nama Router</th><th>Host</th><th>Port</th><th>Username API</th><th>Status</th><th>Aksi</th></tr>
+      </thead>
+      <tbody id="routerRows">
+       <tr><td colspan="6" class="empty">Memuat daftar router...</td></tr>
+      </tbody>
+     </table>
+    </div>
+   </div>
    </div>
   </section>
 
@@ -203,20 +332,50 @@ function renderEvents(){
  const q=document.getElementById('activitySearch').value.trim().toLowerCase();
  const type=document.getElementById('activityType').value;
  const filtered=allEvents.filter(e=>{
-  const hay=[e.user,e.vpn_ip,e.remote_ip,e.message,e.raw].join(' ').toLowerCase();
+  const hay=[e.user,e.vpn_ip,e.remote_ip,e.local_destinations,e.message,e.raw].join(' ').toLowerCase();
   return (!q||hay.includes(q))&&(type==='all'||e.type===type);
  });
  document.getElementById('eventCount').textContent=allEvents.length+' aktivitas';
  document.getElementById('resultNote').textContent=(periodMode?'Hasil periode: ':'Menampilkan ')+filtered.length+' dari '+allEvents.length+' aktivitas'+(periodMode?'':' terbaru');
  const body=document.getElementById('events');
- if(!filtered.length){body.innerHTML='<tr><td colspan="7" class="empty">Tidak ada aktivitas yang cocok dengan pencarian.</td></tr>';return}
+ if(!filtered.length){body.innerHTML='<tr><td colspan="8" class="empty">Tidak ada aktivitas yang cocok dengan pencarian.</td></tr>';return}
  body.innerHTML=filtered.map(e=>{
   let label=e.type==='login'?'LOGIN BERHASIL':e.type==='logout'?'LOGOUT':'GAGAL AUTENTIKASI';
   let cls=e.type==='login'?'p-login':e.type==='failed'?'p-failed':'p-logout';
   const meta=ipMetaCache.get(e.remote_ip)||{};
-  return `<tr><td>${esc(e.timestamp_display)}</td><td>${esc(e.user||'—')}</td><td><span class="pill ${cls}">${label}</span></td><td>${esc(e.vpn_ip||'—')}</td><td>${esc(e.remote_ip||'—')}</td><td id="isp-${esc(e.remote_ip||'none').replace(/[^a-zA-Z0-9]/g,'-')}">${e.remote_ip?(meta.provider||'Mendeteksi…'):'—'}</td><td id="country-${esc(e.remote_ip||'none').replace(/[^a-zA-Z0-9]/g,'-')}">${e.remote_ip?(meta.country||'Mendeteksi…'):'—'}</td></tr>`;
+  return `<tr><td>${esc(e.timestamp_display)}</td><td>${esc(e.user||'—')}</td><td><span class="pill ${cls}">${label}</span></td><td>${esc(e.vpn_ip||'—')}</td><td>${esc(e.remote_ip||'—')}</td><td>${esc(e.local_destinations||'Belum ada data')}</td><td id="isp-${esc(e.remote_ip||'none').replace(/[^a-zA-Z0-9]/g,'-')}">${e.remote_ip?(meta.provider||'Mendeteksi…'):'—'}</td><td id="country-${esc(e.remote_ip||'none').replace(/[^a-zA-Z0-9]/g,'-')}">${e.remote_ip?(meta.country||'Mendeteksi…'):'—'}</td></tr>`;
  }).join('');
 }
+
+async function loadL2tpOnline(){
+ const count=document.getElementById('sessionCount');
+ const body=document.getElementById('sessions');
+
+ try{
+  const r=await fetch('/api/l2tp-online',{cache:'no-store'});
+  const d=await r.json();
+
+  if(!r.ok || d.ok!==true) throw new Error(d.error||'Gagal membaca L2TP');
+
+  const users=d.sessions||[];
+  count.textContent=users.length+' user L2TP online';
+
+  body.innerHTML=users.length?users.map(x=>`
+   <tr>
+    <td><span class="pill p-login">● ONLINE</span></td>
+    <td>${esc(x.user||'—')}</td>
+    <td>${esc(x.vpn_ip||'—')}</td>
+    <td>${esc(x.destination_ip||'Belum ada data')}</td>
+    <td>${esc(x.uptime||'—')}</td>
+   </tr>
+  `).join(''):'<tr><td colspan="5" class="empty">Tidak ada user L2TP yang sedang online.</td></tr>';
+
+ }catch(e){
+  count.textContent='Data L2TP tidak tersedia';
+  body.innerHTML='<tr><td colspan="5" class="empty">Gagal membaca data L2TP.</td></tr>';
+ }
+}
+
 async function refresh(){
  try{
   const r=await fetch('/api/dashboard',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);
@@ -227,9 +386,6 @@ async function refresh(){
   document.getElementById('fails').textContent=d.failures_today;
   document.getElementById('total').textContent=d.total_events;
   document.getElementById('refreshState').textContent='Last Update: '+new Date().toLocaleTimeString('id-ID');
-  document.getElementById('sessionCount').textContent=d.active_sessions.length+' sesi';
-  const ss=document.getElementById('sessions');
-  ss.innerHTML=d.active_sessions.length?d.active_sessions.map(x=>`<tr><td>${esc(x.user)}</td><td>${esc(x.vpn_ip)}</td><td>${esc(x.remote_ip)}</td><td>${esc(x.login_display)}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">Tidak ada sesi aktif yang terdeteksi.</td></tr>';
   if(!periodMode){allEvents=d.recent_events||[];renderEvents();enrichPublicIPs(allEvents);}
  }catch(e){document.getElementById('refreshState').textContent='Gagal memuat data: '+e.message}
 }
@@ -270,6 +426,39 @@ document.getElementById('activityType').addEventListener('change',renderEvents);
 document.getElementById('applyPeriod').addEventListener('click',applyPeriod);
 document.getElementById('resetPeriod').addEventListener('click',resetPeriod);
 document.getElementById('exportExcel').addEventListener('click',exportExcel);
+
+// Kartu statistik dashboard dapat diklik untuk membuka data terkait.
+function openActivityFromCard(type, todayOnly){
+ showView('activity');
+ document.getElementById('activitySearch').value='';
+ document.getElementById('activityType').value=type;
+
+ const start=document.getElementById('startDate');
+ const end=document.getElementById('endDate');
+
+ if(todayOnly){
+  const now=new Date();
+  const today=[
+   now.getFullYear(),
+   String(now.getMonth()+1).padStart(2,'0'),
+   String(now.getDate()).padStart(2,'0')
+  ].join('-');
+  start.value=today;
+  end.value=today;
+ }else{
+  start.value='';
+  end.value='';
+ }
+
+ applyPeriod();
+}
+
+
+
+
+
+
+
 refresh();
 
 async function loadSystemInfo(){
@@ -296,6 +485,7 @@ loadSystemInfo();
 
 // Analisis trafik user VPN menggunakan sesi aktif CCR1009 dan NetFlow.
 let analysisSessions = [];
+let analysisResult = null;
 
 function formatTraffic(bytes){
  const n = Number(bytes || 0);
@@ -352,12 +542,15 @@ async function runUserAnalysis(){
   return;
  }
 
+ analysisResult = null;
+ document.getElementById('exportAnalysis').disabled = true;
+
  const btn = document.getElementById('runAnalysis');
  btn.disabled = true;
  btn.textContent = 'Menganalisis...';
  document.getElementById('analysisStatus').textContent = 'Membaca NetFlow...';
  document.getElementById('analysisIdentity').textContent = user.user + ' / ' + user.vpn_ip;
- rows.innerHTML = '<tr><td colspan="7" class="empty">Mengambil data NetFlow...</td></tr>';
+ rows.innerHTML = '<tr><td colspan="8" class="empty">Mengambil data NetFlow...</td></tr>';
 
  try{
   const r = await fetch('/api/netflow-user?ip='+encodeURIComponent(user.vpn_ip)+'&limit=5000',{cache:'no-store'});
@@ -371,12 +564,18 @@ async function runUserAnalysis(){
    ' | Total: ' + formatTraffic(d.total_bytes);
 
   const flows = d.flows || [];
+  analysisResult = {
+   user: String(user.user),
+   vpn_ip: String(user.vpn_ip),
+   flows: flows
+  };
+  document.getElementById('exportAnalysis').disabled = false;
   document.getElementById('analysisStatus').textContent = 'Analisis selesai';
   document.getElementById('analysisNote').textContent =
    'User: '+user.user+' | IP VPN: '+user.vpn_ip+' | Data flow yang ditampilkan: '+flows.length;
 
   if(!flows.length){
-   rows.innerHTML = '<tr><td colspan="7" class="empty">Belum ada flow NetFlow untuk IP VPN ini.</td></tr>';
+   rows.innerHTML = '<tr><td colspan="8" class="empty">Belum ada flow NetFlow untuk IP VPN ini.</td></tr>';
   }else{
    rows.innerHTML = flows.map(f=>`<tr>
     <td>${esc(f.first || '—')}</td>
@@ -384,25 +583,77 @@ async function runUserAnalysis(){
     <td>${esc(f.remote_ip || '—')}</td>
     <td>${esc(f.remote_port ?? '—')}</td>
     <td>${esc(f.protocol || '—')}</td>
-    <td>${Number(f.packets || 0).toLocaleString('id-ID')}</td>
+    <td>${esc(f.destination_ip || 'Belum ada data')}</td>
     <td>${formatTraffic(f.bytes)}</td>
    </tr>`).join('');
   }
  }catch(e){
   document.getElementById('analysisStatus').textContent = 'Gagal';
   document.getElementById('analysisNote').textContent = e.message;
-  rows.innerHTML = '<tr><td colspan="7" class="empty">Gagal mengambil data NetFlow.</td></tr>';
+  rows.innerHTML = '<tr><td colspan="8" class="empty">Gagal mengambil data NetFlow.</td></tr>';
  }finally{
   btn.disabled = false;
   btn.textContent = 'Tampilkan Analisis';
  }
 }
 
+
+async function exportAnalysisExcel(){
+ if(!analysisResult){
+  alert('Jalankan analisis user VPN terlebih dahulu.');
+  return;
+ }
+
+ const btn = document.getElementById('exportAnalysis');
+ btn.disabled = true;
+ btn.textContent = 'Membuat Excel...';
+
+ try{
+  const r = await fetch('/api/netflow-user/export.xlsx',{
+   method:'POST',
+   headers:{
+    'Content-Type':'application/json',
+    'X-CSRF-Token':USER_CSRF
+   },
+   body:JSON.stringify(analysisResult),
+   cache:'no-store'
+  });
+
+  if(!r.ok){
+   let message = 'Gagal membuat laporan Excel.';
+   try{
+    const d = await r.json();
+    message = d.error || message;
+   }catch(e){}
+   throw new Error(message);
+  }
+
+  const blob = await r.blob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const safeUser = analysisResult.user.replace(/[^A-Za-z0-9_-]/g,'_');
+  a.href = url;
+  a.download = 'VPN-Analysis-' + safeUser + '.xlsx';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+ }catch(e){
+  alert(e.message);
+ }finally{
+  btn.disabled = !analysisResult;
+  btn.textContent = 'Export Excel';
+ }
+}
+
 document.getElementById('reloadAnalysisUsers').addEventListener('click',loadAnalysisUsers);
 document.getElementById('runAnalysis').addEventListener('click',runUserAnalysis);
+document.getElementById('exportAnalysis').addEventListener('click',exportAnalysisExcel);
 document.getElementById('analysisUser').addEventListener('change',()=>{
  const x = analysisSessions[Number(document.getElementById('analysisUser').value)];
  document.getElementById('analysisIdentity').textContent = x ? x.user+' / '+x.vpn_ip : '—';
+ analysisResult = null;
+ document.getElementById('exportAnalysis').disabled = true;
 });
 
 
@@ -510,9 +761,9 @@ document.getElementById('userRows').addEventListener('click', async e => {
     is_active: btn.dataset.active === 'true'
    });
   } else if (action === 'password') {
-   const password = prompt('Password baru untuk ' + username + ' (minimal 10 karakter):');
+   const password = prompt('Password baru untuk ' + username + ' (minimal 6 karakter):');
    if (password === null) return;
-   if (password.length < 10) throw new Error('Password minimal 10 karakter.');
+   if (password.length < 6) throw new Error('Password minimal 6 karakter.');
    await userRequest('/api/users/' + id, 'PATCH', {password});
   } else if (action === 'toggle') {
    const active = btn.dataset.active !== 'true';
@@ -530,6 +781,223 @@ document.getElementById('userRows').addEventListener('click', async e => {
   alert(err.message);
  }
 });
+
+
+
+
+function routerMessage(message, type='') {
+ const el = document.getElementById('routerMessage');
+ if (!el) return;
+ el.textContent = message;
+ el.className = 'user-message ' + type;
+}
+
+function getRouterFormData() {
+ return {
+  name: document.getElementById('routerName').value.trim(),
+  host: document.getElementById('routerHost').value.trim(),
+  port: Number(document.getElementById('routerPort').value),
+  connection_type: document.getElementById('routerType').value,
+  username: document.getElementById('routerUsername').value.trim(),
+  password: document.getElementById('routerPassword').value,
+  description: document.getElementById('routerDescription').value.trim()
+ };
+}
+
+async function loadRouters() {
+ const tbody = document.getElementById('routerRows');
+ if (!tbody) return;
+
+ tbody.innerHTML = '<tr><td colspan="6" class="empty">Memuat daftar router...</td></tr>';
+
+ try {
+  const result = await userRequest('/api/routers');
+  const routers = result.routers || [];
+  document.getElementById('routerCount').textContent = routers.length + ' router';
+
+  if (!routers.length) {
+   tbody.innerHTML = '<tr><td colspan="6" class="empty">Belum ada router terdaftar.</td></tr>';
+   return;
+  }
+
+  tbody.innerHTML = routers.map(r => {
+   const active = r.is_active === true || Number(r.is_active) === 1;
+   return `<tr>
+    <td><strong>${esc(r.name)}</strong><br><small>${esc(r.description || '')}</small></td>
+    <td>${esc(r.host)}</td>
+    <td>${esc(r.port)}</td>
+    <td>${esc(r.api_username || '-')}</td>
+    <td><span class="pill ${active ? 'p-login' : 'p-logout'}">${active ? 'Router Aktif' : 'Tersimpan'}</span></td>
+    <td><div class="user-actions">
+     ${active ? '' : `<button type="button" class="secondary" data-router-action="activate" data-id="${r.id}" data-name="${esc(r.name)}">Aktifkan</button>`}
+     <button type="button" data-router-action="delete" data-id="${r.id}" data-name="${esc(r.name)}">Hapus</button>
+    </div></td>
+   </tr>`;
+  }).join('');
+ } catch (e) {
+  tbody.innerHTML = `<tr><td colspan="6" class="empty">${esc(e.message)}</td></tr>`;
+ }
+}
+
+document.getElementById('testRouterButton').addEventListener('click', async () => {
+ const btn = document.getElementById('testRouterButton');
+ const resultEl = document.getElementById('routerTestResult');
+ btn.disabled = true;
+ btn.textContent = 'Menguji...';
+ resultEl.textContent = '';
+
+ try {
+  const result = await userRequest('/api/routers/test', 'POST', getRouterFormData());
+  resultEl.textContent =
+   'Koneksi berhasil • ' + (result.identity || '-') +
+   ' • RouterOS ' + (result.version || '-') +
+   ' • Board ' + (result.board || '-') +
+   ' • Uptime ' + (result.uptime || '-');
+  routerMessage('Test koneksi berhasil.', 'success');
+ } catch (e) {
+  routerMessage(e.message, 'error');
+  resultEl.textContent = '';
+ } finally {
+  btn.disabled = false;
+  btn.textContent = 'Test Connection';
+ }
+});
+
+document.getElementById('addRouterForm').addEventListener('submit', async e => {
+ e.preventDefault();
+ const btn = document.getElementById('saveRouterButton');
+ btn.disabled = true;
+ btn.textContent = 'Menyimpan...';
+
+ try {
+  const result = await userRequest('/api/routers', 'POST', getRouterFormData());
+  e.target.reset();
+  document.getElementById('routerPort').value = 8728;
+  document.getElementById('routerTestResult').textContent =
+   'Koneksi berhasil • ' + (result.test?.identity || '-') +
+   ' • RouterOS ' + (result.test?.version || '-');
+  routerMessage(result.message || 'Router berhasil disimpan.', 'success');
+  await loadRouters();
+ } catch (err) {
+  routerMessage(err.message, 'error');
+  alert(err.message);
+ } finally {
+  btn.disabled = false;
+  btn.textContent = '+ Simpan Router';
+ }
+});
+
+document.getElementById('reloadRouters').addEventListener('click', loadRouters);
+
+document.getElementById('routerRows').addEventListener('click', async e => {
+ const btn = e.target.closest('button[data-router-action]');
+ if (!btn) return;
+
+ const id = Number(btn.dataset.id);
+ const name = btn.dataset.name || 'router';
+ const action = btn.dataset.routerAction;
+
+ try {
+  if (action === 'activate') {
+   if (!confirm('Jadikan ' + name + ' sebagai router aktif?')) return;
+   const result = await userRequest('/api/routers/' + id + '/active', 'POST', {});
+   routerMessage(result.message || 'Router aktif berhasil diganti.', 'success');
+  } else if (action === 'delete') {
+   if (!confirm('Hapus router ' + name + '? Tindakan ini tidak dapat dibatalkan.')) return;
+   const result = await userRequest('/api/routers/' + id, 'DELETE');
+   routerMessage(result.message || 'Router berhasil dihapus.', 'success');
+  }
+  await loadRouters();
+ } catch (err) {
+  routerMessage(err.message, 'error');
+  alert(err.message);
+ }
+});
+
+// Muat daftar router saat halaman dibuka.
+loadRouters();
+
+// Smart NOC polling: host metrics every 5s; router PPP sessions every 15s.
+const nocTraffic = {download:[], upload:[], lastRecv:null, lastSent:null, lastAt:null};
+let nocRouterBusy = false;
+let nocMetricsBusy = false;
+const nocFmtBytes = n => {
+ const v=Number(n||0); if(v>=1073741824)return (v/1073741824).toFixed(2)+' GB';
+ if(v>=1048576)return (v/1048576).toFixed(1)+' MB';
+ if(v>=1024)return (v/1024).toFixed(1)+' KB'; return v+' B';
+};
+const nocFmtMbps = n => (Number(n||0)).toFixed(2);
+const nocFmtUptime = s => {
+ s=Math.max(0,Number(s||0)); const d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);
+ return (d?d+'h ':'')+h+'j '+m+'m';
+};
+function nocSetBar(id,value){const el=document.getElementById(id);if(el)el.style.width=Math.max(0,Math.min(100,Number(value)||0))+'%';}
+function nocDrawChart(){
+ const all=[...nocTraffic.download,...nocTraffic.upload], max=Math.max(1,...all)*1.18;
+ const points=arr=>arr.map((v,i)=>`${35+(i/59)*655},${135-(Math.min(max,v)/max)*120}`).join(' ');
+ document.getElementById('nocDownloadLine').setAttribute('points',points(nocTraffic.download));
+ document.getElementById('nocUploadLine').setAttribute('points',points(nocTraffic.upload));
+ document.getElementById('nocChartMax').textContent=max.toFixed(1)+' Mbps';
+}
+async function loadNocMetrics(){
+ if(nocMetricsBusy)return; nocMetricsBusy=true;
+ try{
+  const r=await fetch('/api/noc-monitoring',{cache:'no-store'});const d=await r.json();
+  if(!r.ok||!d.ok)throw new Error(d.error||'Metrik server tidak tersedia');
+  document.getElementById('nocCpu').textContent=d.cpu_percent+'%';
+  document.getElementById('nocRam').textContent=d.memory_percent+'%';
+  document.getElementById('nocDisk').textContent=d.disk_percent+'%';
+  document.getElementById('nocHost').textContent='Host: '+d.hostname;
+  document.getElementById('nocRamDetail').textContent=nocFmtBytes(d.memory_used)+' / '+nocFmtBytes(d.memory_total);
+  document.getElementById('nocDiskDetail').textContent=nocFmtBytes(d.disk_used)+' / '+nocFmtBytes(d.disk_total);
+  document.getElementById('nocUptime').textContent=nocFmtUptime(d.uptime_seconds);
+  document.getElementById('nocBoot').textContent='Boot: '+d.boot_time;
+  document.getElementById('nocInterface').textContent='Interface: '+d.interface+' · Mbps';
+  document.getElementById('nocIfState').textContent='UP';
+  document.getElementById('nocIfState').className='noc-good';
+  nocSetBar('nocCpuBar',d.cpu_percent);nocSetBar('nocRamBar',d.memory_percent);nocSetBar('nocDiskBar',d.disk_percent);
+  const now=Date.now();
+  if(nocTraffic.lastAt!==null){
+   const sec=Math.max(.1,(now-nocTraffic.lastAt)/1000);
+   const down=Math.max(0,(d.bytes_recv-nocTraffic.lastRecv)*8/sec/1000000);
+   const up=Math.max(0,(d.bytes_sent-nocTraffic.lastSent)*8/sec/1000000);
+   nocTraffic.download.push(down);nocTraffic.upload.push(up);
+   if(nocTraffic.download.length>60)nocTraffic.download.shift();
+   if(nocTraffic.upload.length>60)nocTraffic.upload.shift();
+   document.getElementById('nocTrafficNow').textContent='Download: '+nocFmtMbps(down)+' Mbps · Upload: '+nocFmtMbps(up)+' Mbps';
+   nocDrawChart();
+  }
+  nocTraffic.lastRecv=d.bytes_recv;nocTraffic.lastSent=d.bytes_sent;nocTraffic.lastAt=now;
+  const router=d.router||{};
+  document.getElementById('nocRouterState').textContent=router.reachable?'TERHUBUNG':'TIDAK TERJANGKAU';
+  document.getElementById('nocRouterState').className=router.reachable?'noc-good':'noc-bad';
+  document.getElementById('nocLatency').textContent=router.latency_ms===null?'—':router.latency_ms+' ms';
+  document.getElementById('nocOverall').textContent=router.reachable?'Router terhubung':'Periksa router';
+  document.getElementById('nocOverall').className='count '+(router.reachable?'noc-good':'noc-bad');
+  document.getElementById('nocUpdated').textContent='Update '+new Date().toLocaleTimeString('id-ID');
+ }catch(e){
+  document.getElementById('nocUpdated').textContent='Monitoring: '+e.message;
+  document.getElementById('nocOverall').textContent='Data terbatas';
+ }finally{nocMetricsBusy=false;}
+}
+async function loadNocRouter(){
+ if(nocRouterBusy)return; nocRouterBusy=true;
+ try{
+  const r=await fetch('/api/routeros-active',{cache:'no-store'});const d=await r.json();
+  if(!r.ok||d.ok!==true)throw new Error(d.error||'Data VPN CCR1009 tidak tersedia');
+  document.getElementById('nocVpnOnline').textContent=d.online_count;
+  document.getElementById('nocVpnOffline').textContent=d.offline_count;
+ }catch(e){
+  document.getElementById('nocVpnOnline').textContent='—';
+  document.getElementById('nocVpnOffline').textContent='—';
+ }finally{nocRouterBusy=false;}
+}
+loadNocMetrics();
+loadNocRouter();
+loadL2tpOnline();
+setInterval(loadNocMetrics,5000);
+setInterval(loadNocRouter,15000);
+setInterval(loadL2tpOnline,10000);
 
 
 // Navigasi halaman: setiap menu hanya menampilkan bagian yang dipilih.
