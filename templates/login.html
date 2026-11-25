@@ -60,10 +60,17 @@ input:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff690022}
 .info-card h3{font-size:14px;margin:0 0 8px;color:#fff}
 .info-card p{font-size:12px;line-height:1.7;color:#aaa;margin:0}
 .info-card a{display:inline-block;margin-top:13px;color:var(--orange2);font-size:11px;font-weight:800}
-.contact-panel{background:linear-gradient(110deg,#33251c,#252525);border:1px solid #65452e;border-radius:13px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.contact-panel h3{margin:0 0 7px;font-size:17px}
-.contact-panel p{margin:0;color:#bbb;font-size:12px;line-height:1.6}
-.contact-label{background:var(--orange);color:#171717;padding:11px 15px;border-radius:8px;font-size:11px;font-weight:900;white-space:nowrap}
+.contact-panel{background:linear-gradient(130deg,#30251e,#252525);border:1px solid #65452e;border-radius:14px;padding:25px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+.contact-item{display:flex;gap:14px;padding:19px;border-bottom:1px solid #ffffff16}
+.contact-item:nth-last-child(-n+2){border-bottom:0}
+.contact-icon{width:42px;height:42px;flex:0 0 42px;border-radius:11px;background:#ff69001c;color:var(--orange2);display:grid;place-items:center}
+.contact-icon svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.contact-item h3{margin:2px 0 8px;font-size:11px;letter-spacing:1.1px;color:var(--orange2)}
+.contact-item p{margin:0;color:#e0e0e0;font-size:13px;line-height:1.7}
+.contact-item a{color:#fff;font-weight:800;text-decoration:none}
+.contact-item a:hover{color:var(--orange2)}
+.contact-item .muted{color:#aaa;font-size:11px}
+@media(max-width:650px){.contact-panel{grid-template-columns:1fr;padding:13px}.contact-item{padding:17px 9px;border-bottom:1px solid #ffffff16!important}.contact-item:last-child{border-bottom:0!important}}
 footer{margin-top:38px;border-top:1px solid #3f3f3f;padding:24px 0 30px;color:#999;font-size:11px}
 .footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 .footer-row b{color:#ddd}
@@ -139,11 +146,28 @@ footer{margin-top:38px;border-top:1px solid #3f3f3f;padding:24px 0 30px;color:#9
 </section>
 <section class="section" id="contact">
  <div class="container">
-  <div class="contact-panel"><div><h3>Need Network Support?</h3><p>Untuk akses sistem atau bantuan operasional, hubungi administrator jaringan yang mengelola Office VPN Monitoring.</p></div><span class="contact-label">NETWORK OPERATIONS</span></div>
+  <div class="contact-panel">
+   <div class="contact-item">
+    <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5M9 21v-7h6v7"/></svg></span>
+    <div><h3>LOCATION / ADDRESS</h3><p><strong>NETFORGE</strong><br>Jakarta Capital Region &amp; Bogor, Indonesia</p></div>
+   </div>
+   <div class="contact-item">
+    <span class="contact-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+    <div><h3>E-MAIL SUPPORT</h3><p><a href="mailto:nfntdigital@gmail.com">nfntdigital@gmail.com</a></p></div>
+   </div>
+   <div class="contact-item">
+    <span class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.2-4.5A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.5c.5 3 2 4.5 5 5"/></svg></span>
+    <div><h3>WHATSAPP / CONTACT PERSON</h3><p><strong>Irfann JT</strong><br><a href="https://wa.me/6285187380500" target="_blank" rel="noopener">+62 851-8738-0500 ↗</a></p></div>
+   </div>
+   <div class="contact-item">
+    <span class="contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+    <div><h3>WORKING HOURS</h3><p><strong>Online Support</strong><br><span class="muted">Silakan hubungi melalui WhatsApp atau email untuk ketersediaan.</span></p></div>
+   </div>
+  </div>
  </div>
 </section>
 </main>
-<footer><div class="container footer-row"><span><b>OFFICE VPN MONITORING</b> · Secure Network Visibility</span><span>Internal Network Operations Portal · © Office VPN Monitoring</span></div></footer>
+<footer><div class="container footer-row"><span><b>NETFORGE</b> · Office VPN Monitoring</span><span>© Copyright 2020-2026 NETFORGE - All Rights Reserved.</span></div></footer>
 <script>
 (function(){
  const btn=document.getElementById('menuToggle');
