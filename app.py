@@ -618,6 +618,9 @@ def read_events():
                                   remote_ip=logout.group("remote_ip"), message="VPN logout")
                     elif FAIL_RE.search(body):
                         ev.update(type="failed", message=body)
+                    else:
+                        continue
+
                     events.append(ev)
         except OSError:
             continue
@@ -765,27 +768,41 @@ def index():
 def events_data():
     start_value = request.args.get("start_date", "").strip()
     end_value = request.args.get("end_date", "").strip()
+    event_type = request.args.get("type", "all").strip()
+    query = request.args.get("q", "").strip().lower()
+
     try:
         start_date = datetime.strptime(start_value, "%Y-%m-%d").date() if start_value else None
         end_date = datetime.strptime(end_value, "%Y-%m-%d").date() if end_value else None
     except ValueError:
         return jsonify(error="Format tanggal tidak valid. Gunakan YYYY-MM-DD."), 400
+
     if start_date and end_date and start_date > end_date:
         return jsonify(error="Tanggal mulai tidak boleh melewati tanggal akhir."), 400
 
-    events = read_events()
+    if event_type not in ("all", "login", "logout", "failed"):
+        return jsonify(error="Jenis aktivitas tidak valid."), 400
+
     filtered = []
-    for event in events:
+    for event in read_events():
         event_date = datetime.fromisoformat(event["timestamp"]).date()
         if start_date and event_date < start_date:
             continue
         if end_date and event_date > end_date:
             continue
+        if event_type != "all" and event.get("type") != event_type:
+            continue
+
+        hay = " ".join(str(event.get(key, "")) for key in
+                       ("user", "vpn_ip", "remote_ip", "message", "raw")).lower()
+        if query and query not in hay:
+            continue
         filtered.append(event)
+
     filtered.reverse()
-    filtered = attach_local_destinations(filtered[:5000])
     total = len(filtered)
-    return jsonify(total=total, events=filtered, limit=5000)
+    page_events = attach_local_destinations(filtered[:5000])
+    return jsonify(total=total, events=page_events, limit=5000)
 
 
 
@@ -1071,6 +1088,102 @@ def noc_monitoring_data():
         APP.logger.exception("NOC monitoring gagal membaca metrik server")
         return jsonify(ok=False, error="Metrik server sementara tidak dapat dibaca."), 503
 
+
+
+
+
+@APP.get("/api/vpn-login-history")
+def vpn_login_history():
+    conn = None
+    cursor = None
+    try:
+        conn = db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+            SELECT
+                id,
+                username,
+                vpn_ip,
+                remote_ip,
+                connection_type,
+                login_at,
+                logout_at,
+                duration_seconds,
+                status
+            FROM vpn_sessions
+            ORDER BY login_at DESC
+            LIMIT 50
+        """)
+        rows = cursor.fetchall()
+
+        for row in rows:
+            for field in ("login_at", "logout_at"):
+                value = row.get(field)
+                if value is not None:
+                    row[field] = value.strftime("%Y-%m-%d %H:%M:%S")
+
+        return jsonify(ok=True, total=len(rows), history=rows)
+
+    except Exception:
+        APP.logger.exception("Gagal membaca History Login VPN")
+        return jsonify(
+            ok=False,
+            error="Riwayat login VPN sementara tidak dapat dibaca."
+        ), 503
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if conn is not None:
+            conn.close()
+
+
+@APP.get("/api/vpn-live-map")
+def vpn_live_map_data():
+    try:
+        result = subprocess.run(
+            [
+                os.path.join(PROJECT_DIR, "venv", "bin", "python"),
+                os.path.join(PROJECT_DIR, "vpn_live_map.py")
+            ],
+            cwd=PROJECT_DIR,
+            capture_output=True,
+            text=True,
+            timeout=90
+        )
+
+        if result.returncode != 0:
+            APP.logger.error(
+                "VPN Live Map collector gagal: %s",
+                (result.stderr or "")[-1000:]
+            )
+            return jsonify(
+                ok=False,
+                error="Collector VPN Live Map gagal dijalankan."
+            ), 503
+
+        data = json.loads(result.stdout)
+
+        if not isinstance(data, dict) or data.get("ok") is not True:
+            return jsonify(
+                ok=False,
+                error="Data VPN Live Map tidak valid."
+            ), 503
+
+        return jsonify(data)
+
+    except subprocess.TimeoutExpired:
+        return jsonify(
+            ok=False,
+            error="Pemeriksaan router melewati batas waktu."
+        ), 504
+
+    except Exception:
+        APP.logger.exception("VPN Live Map API gagal")
+        return jsonify(
+            ok=False,
+            error="Data VPN Live Map sementara tidak tersedia."
+        ), 503
 
 @APP.get("/api/routeros-active")
 def routeros_active_data():

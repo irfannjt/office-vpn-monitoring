@@ -51,7 +51,395 @@
 @media(max-width:1100px){.noc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.noc-layout{grid-template-columns:1fr}.noc-grid{gap:9px}.noc-tile{padding:12px}.noc-tile strong{font-size:21px}}
 
+
+/* RIM VPN Live Map */
+#vpnmap .vpn-map-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
+#vpnmap .vpn-map-stat{background:#0b2945;border:1px solid #1b405f;border-radius:11px;padding:13px}
+#vpnmap .vpn-map-stat small{display:block;color:#9bb0c9;font-size:10px;text-transform:uppercase}
+#vpnmap .vpn-map-stat strong{display:block;font-size:25px;margin-top:4px}
+#vpnmap .vpn-map-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:14px}
+#vpnmap-canvas{height:490px;min-height:360px;border:1px solid #254563;border-radius:10px;z-index:1;background:#102640}
+#vpnmap .vpn-map-side{min-width:0}
+#vpnmap .vpn-router-list{display:grid;gap:8px;max-height:210px;overflow:auto}
+#vpnmap .vpn-router-item{padding:10px;border:1px solid #1b3a58;background:#07182b;border-radius:9px;font-size:12px}
+#vpnmap .vpn-map-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:#b8cce1;margin:9px 0}
+#vpnmap .vpn-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+#vpnmap .vpn-dot-sstp{background:#39a5ff}
+#vpnmap .vpn-dot-l2tp{background:#10d58a}
+#vpnmap .vpn-table-wrap{overflow:auto;max-height:390px;border-radius:9px}
+#vpnmap .vpn-map-note{font-size:11px;color:#9bb0c9;margin-top:9px}
+@media(max-width:900px){ #vpnmap .vpn-map-layout{grid-template-columns:1fr}}
+@media(max-width:760px){ #vpnmap .vpn-map-stats{grid-template-columns:repeat(2,minmax(0,1fr))}#vpnmap-canvas{height:380px}}
+
+
+/* RIM VPN LOGIN HISTORY */
+#vpnmap .vpn-history-list {
+  display:grid;
+  gap:10px;
+  max-height:560px;
+  overflow:auto;
+  padding-right:3px;
+}
+#vpnmap .vpn-history-item {
+  padding:12px;
+  border:1px solid #294b70;
+  border-radius:11px;
+  background:#102943;
+  color:#edf5ff;
+  font-size:12px;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+}
+#vpnmap .vpn-history-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+}
+#vpnmap .vpn-history-top strong {
+  color:#fff;
+  font-size:14px;
+}
+#vpnmap .vpn-history-meta {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:5px;
+  color:#b6c9df;
+  margin-bottom:8px;
+}
+#vpnmap .vpn-history-detail {
+  color:#d2e2f3;
+  margin-top:3px;
+}
+#vpnmap .vpn-history-foot {
+  color:#91a9c2;
+  border-top:1px solid #294b70;
+  margin-top:8px;
+  padding-top:7px;
+  font-size:11px;
+}
+
+/* RIM VPN PROFESSIONAL DESIGN */
+#vpnmap {
+  color: #e6f0ff;
+  font-size: 14px;
+}
+#vpnmap .panel-head {
+  margin-bottom: 14px;
+}
+#vpnmap .panel-head h3 {
+  color: #f1f6ff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+#vpnmap .vpn-map-layout {
+  grid-template-columns: minmax(0, 2fr) minmax(280px, .9fr);
+  gap: 20px;
+  align-items: start;
+}
+#vpnmap-canvas {
+  height: 560px;
+  min-height: 420px;
+  border: 1px solid #294b70;
+  border-radius: 13px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.22);
+}
+#vpnmap .vpn-map-side {
+  padding: 15px;
+  border: 1px solid #244361;
+  border-radius: 13px;
+  background: #0b1d32;
+}
+#vpnmap .vpn-router-list {
+  gap: 11px;
+  max-height: 560px;
+}
+#vpnmap .vpn-router-item {
+  padding: 15px;
+  border: 1px solid #294b70;
+  border-radius: 11px;
+  background: #102943;
+  color: #edf5ff;
+  font-size: 13px;
+  line-height: 1.7;
+}
+#vpnmap .vpn-router-item b {
+  color: #ffffff;
+  font-size: 14px;
+}
+#vpnmap .vpn-router-item .status-text {
+  color: #b6c9df;
+  font-size: 12px;
+}
+#vpnmap .vpn-table-wrap {
+  max-height: 520px;
+  overflow: auto;
+  border: 1px solid #294b70;
+  border-radius: 12px;
+  background: #0a1b2e;
+}
+#vpnmap .vpn-table-wrap table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+#vpnmap .vpn-table-wrap th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 14px 13px;
+  background: #173653;
+  color: #eaf4ff;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid #355979;
+}
+#vpnmap .vpn-table-wrap td {
+  padding: 13px;
+  color: #d9e7f7;
+  font-size: 12px;
+  border-bottom: 1px solid #1b3650;
+  white-space: nowrap;
+}
+#vpnmap .vpn-table-wrap tbody tr:nth-child(even) {
+  background: #0d2239;
+}
+#vpnmap .vpn-table-wrap tbody tr:hover {
+  background: #173653;
+}
+#vpnmap .vpn-map-note {
+  color: #a9bfd7;
+  font-size: 12px;
+  line-height: 1.6;
+}
+#vpnmap .vpn-map-legend {
+  padding: 10px 2px;
+  font-size: 12px;
+  color: #d1e2f5;
+}
+#vpnmap .count {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #173653;
+  color: #dceeff;
+}
+#vpnmap .pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+#vpnmap select,
+#vpnmap input {
+  min-height: 42px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+#vpnmap button {
+  min-height: 40px;
+  border-radius: 9px;
+  font-weight: 600;
+}
+@media(max-width:900px) {
+  #vpnmap .vpn-map-layout {
+    grid-template-columns: 1fr;
+  }
+  #vpnmap-canvas {
+    height: 430px;
+  }
+}
+@media(max-width:600px) {
+  #vpnmap-canvas {
+    height: 350px;
+    min-height: 300px;
+  }
+  #vpnmap .vpn-map-side {
+    padding: 11px;
+  }
+}
+
+
+/* RIM VPN LAYOUT REFINEMENT V2 */
+#vpnmap .vpn-map-layout {
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr);
+  gap: 16px;
+}
+#vpnmap-canvas {
+  height: 430px;
+  min-height: 360px;
+}
+#vpnmap .vpn-map-side {
+  min-height: 430px;
+}
+#vpnmap .vpn-router-list {
+  max-height: 370px;
+}
+#vpnmap .vpn-table-wrap {
+  max-height: 460px;
+}
+@media(max-width:900px) {
+  #vpnmap .vpn-map-layout {
+    grid-template-columns: 1fr;
+  }
+  #vpnmap .vpn-map-side {
+    min-height: auto;
+  }
+}
+
+
+/* RIM VPN FULLSCREEN MODE V3 */
+body.rim-map-focus .sidebar,
+body.rim-map-focus .topbar {
+  display: none !important;
+}
+
+body.rim-map-focus .content {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.rim-map-focus #vpnmap {
+  display: block !important;
+  visibility: visible !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  background: #071321 !important;
+}
+
+body.rim-map-focus #vpnmap > * {
+  display: none !important;
+}
+
+body.rim-map-focus #vpnmap .vpn-map-layout {
+  display: block !important;
+  position: fixed !important;
+  inset: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.rim-map-focus #vpnmap .vpn-map-layout > div:first-child {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.rim-map-focus #vpnmap .vpn-map-side,
+body.rim-map-focus #vpnmap .vpn-map-legend,
+body.rim-map-focus #vpnmap .vpn-map-note {
+  display: none !important;
+}
+
+body.rim-map-focus #vpnmap-canvas {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  z-index: 1 !important;
+}
+
+body.rim-map-focus .rim-map-focus-controls {
+  display: flex !important;
+}
+
+.rim-map-focus-controls {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  z-index: 100001;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(111,170,220,.4);
+  border-radius: 12px;
+  background: rgba(5,20,38,.94);
+  color: #edf6ff;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+  backdrop-filter: blur(12px);
+  font-size: 13px;
+}
+.rim-map-focus-controls strong {
+  font-size: 13px;
+}
+.rim-map-focus-controls button {
+  padding: 9px 13px;
+  border: 1px solid #4b83b5;
+  border-radius: 8px;
+  background: #17466d;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+.rim-map-focus-controls button:hover {
+  background: #23618f;
+}
+@media(max-width:600px) {
+  .rim-map-focus-controls {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    justify-content: space-between;
+  }
+}
+
+
+/* RIM SIDEBAR TOGGLE */
+body.rim-sidebar-hidden .sidebar {
+  display: none !important;
+}
+body.rim-sidebar-hidden .main {
+  margin-left: 0 !important;
+}
+#rimSidebarToggle {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  background: #142b45;
+  border: 1px solid #294966;
+  color: #e6f1ff;
+  border-radius: 9px;
+}
+#rimSidebarToggle:hover {
+  background: #1b4268;
+}
+.page-title {
+  min-width: 0;
+}
+
 </style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
 <div class="app">
@@ -62,6 +450,7 @@
   <a href="#activity" data-view="activity"><span class="ico">▤</span>Log Aktivitas VPN</a>
   <a href="#analysis" data-view="analysis"><span class="ico">▥</span>Analisis User VPN</a>
   <a href="#devices" data-view="devices"><span class="ico">▣</span>Perangkat / Site</a>
+  <a href="#vpnmap" data-view="vpnmap"><span class="ico">◎</span>RIM VPN Live Map</a>
   <a href="#system" data-view="system"><span class="ico">ⓘ</span>Informasi Sistem</a>
   <a href="#update" data-view="update"><span class="ico">⟳</span>Update Aplikasi</a>
   <div class="nav-sep"></div>
@@ -73,7 +462,7 @@
  <div class="side-bottom"><div class="side-art">▣</div><div style="text-align:center">v1.0.0 &nbsp;|&nbsp; Office VPN Monitoring</div><div class="online-tag">● Online</div></div>
 </aside>
 <div class="main">
- <header class="topbar"><div class="page-title"><div class="title-icon">▣</div><div><h2 id="pageHeading">Log Aktivitas VPN</h2><p id="pageSub">Riwayat login dan logout VPN dari seluruh perangkat/site</p></div></div><div class="top-actions"><div class="last-update">⟳ <span id="refreshState">Menghubungkan…</span></div><div class="live"><i class="dot"></i> Live <span id="clock"></span></div><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a></div></header>
+ <header class="topbar"><div class="page-title"><button type="button" id="rimSidebarToggle" class="secondary" aria-label="Sembunyikan menu" title="Sembunyikan/Tampilkan menu">☰</button><div class="title-icon">▣</div><div><h2 id="pageHeading">Log Aktivitas VPN</h2><p id="pageSub">Riwayat login dan logout VPN dari seluruh perangkat/site</p></div></div><div class="top-actions"><div class="last-update">⟳ <span id="refreshState">Menghubungkan…</span></div><div class="live"><i class="dot"></i> Live <span id="clock"></span></div><a href="/logout" style="color:#d8e9fa;text-decoration:none;border:1px solid #294966;border-radius:9px;padding:8px 12px;font-size:12px">Keluar ↗</a></div></header>
  <main class="content">
   <section id="overview">
 
@@ -150,6 +539,49 @@
    <p class="status-text" style="margin-top:12px">Catatan: NetFlow menampilkan IP tujuan, port, protokol, waktu, paket, dan volume data. Konten halaman HTTPS tidak dapat dibaca dari NetFlow saja.</p>
   </section>
   <section id="devices" class="panel session-panel"><div class="panel-head"><div><h3>User L2TP Online</h3><div class="status-text">Sesi aktif langsung dari CCR1009</div></div><span class="count" id="sessionCount">Memuat…</span></div><div class="scroll"><table><thead><tr><th>Status</th><th>Username</th><th>IP VPN</th><th>IP Tujuan / Server</th><th>Uptime</th></tr></thead><tbody id="sessions"><tr><td colspan="5" class="empty">Memuat user L2TP…</td></tr></tbody></table></div></section>
+
+   <section id="vpnmap" class="panel view-hidden">
+    <div class="panel-head">
+     <div><h3>RIM VPN Live Map</h3><div class="status-text">Peta perkiraan lokasi IP publik sesi SSTP dan L2TP dari seluruh router terdaftar</div></div>
+     <span class="count" id="vpnMapUpdated">Menunggu data…</span>
+    </div>
+    <div class="vpn-map-stats">
+     <div class="vpn-map-stat"><small>Sesi VPN Online</small><strong id="vpnMapSessions">—</strong></div>
+     <div class="vpn-map-stat"><small>Router Online</small><strong id="vpnMapRouters">—</strong></div>
+     <div class="vpn-map-stat"><small>SSTP Aktif</small><strong id="vpnMapSstp">—</strong></div>
+     <div class="vpn-map-stat"><small>L2TP Aktif</small><strong id="vpnMapL2tp">—</strong></div>
+    </div>
+    <div class="toolbar">
+     <select id="vpnMapRouter" aria-label="Filter router"><option value="">Semua Router</option></select>
+     <select id="vpnMapService" aria-label="Filter layanan VPN"><option value="">Semua Layanan</option><option value="SSTP">SSTP</option><option value="L2TP">L2TP</option></select>
+     <div class="searchbox"><span>⌕</span><input id="vpnMapSearch" type="search" placeholder="Cari username / IP VPN / IP publik…" autocomplete="off"></div>
+     <button type="button" class="secondary" id="vpnMapRefresh">⟳ Refresh</button>
+    </div>
+    <div class="vpn-map-layout">
+     <div>
+      <div id="vpnmap-canvas" role="application" aria-label="Peta lokasi perkiraan koneksi VPN"></div>
+      <div class="vpn-map-legend"><span><i class="vpn-dot vpn-dot-sstp"></i>SSTP</span><span><i class="vpn-dot vpn-dot-l2tp"></i>L2TP</span></div>
+      <div class="vpn-map-note">Lokasi berdasarkan geolokasi IP publik dan hanya perkiraan lokasi jaringan/ISP. Bukan posisi fisik pelanggan.</div>
+     </div>
+     <div class="vpn-map-side">
+      <div class="panel-head">
+       <h3>HISTORY LOGIN VPN</h3>
+       <span class="count" id="vpnHistoryCount">Memuat…</span>
+      </div>
+      <div class="vpn-history-list" id="vpnHistoryList">
+       <div class="empty">Memuat riwayat login…</div>
+      </div>
+     </div>
+    </div>
+    <div class="panel-head" style="margin-top:20px"><h3>Daftar Sesi VPN Aktif</h3><span class="count" id="vpnMapSessionCount">0 sesi</span></div>
+    <div class="vpn-table-wrap">
+     <table>
+      <thead><tr><th>Router</th><th>Layanan</th><th>Username</th><th>IP VPN</th><th>IP Publik / Caller ID</th><th>Lokasi Perkiraan</th><th>Uptime</th></tr></thead>
+      <tbody id="vpnMapRows"><tr><td colspan="7" class="empty">Memuat sesi VPN…</td></tr></tbody>
+     </table>
+    </div>
+    <div class="vpn-map-note" id="vpnMapMessage">Menyiapkan data peta…</div>
+   </section>
   <section id="system" class="panel system-panel"><div class="panel-head"><div><h3>Informasi Sistem</h3><div class="status-text">Versi aplikasi dan status repository</div></div><button id="checkUpdate" type="button" class="secondary">Periksa Update</button></div><div class="sysgrid"><div class="sysitem"><small>Versi</small><strong id="sysVersion">Memuat…</strong></div><div class="sysitem"><small>Branch</small><strong id="sysBranch">—</strong></div><div class="sysitem"><small>Commit lokal</small><strong id="sysCommit">—</strong></div></div></section>
   <section id="update" class="panel system-panel"><div class="panel-head"><div><h3>Update Aplikasi</h3><div class="status-text">Pembaruan resmi dari GitHub</div></div><button id="checkUpdate2" type="button" class="secondary">Periksa Update</button></div><div class="update-banner"><div><strong id="updateTitle">Memeriksa pembaruan…</strong><div class="status-text" id="updateMessage">Menghubungi GitHub repository irfannjt/office-vpn-monitoring</div></div><button id="updateNow" type="button" disabled>Update Sekarang</button></div><div style="margin-top:13px"><strong style="font-size:12px">Changelog terbaru</strong><div id="changelog" class="commit-list">Memuat riwayat perubahan…</div></div><div style="margin-top:13px"><strong style="font-size:12px">Update manual via SSH</strong><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#07182b;border:1px solid #1b3a58;border-radius:9px;padding:12px;color:#86efac;font-size:11px">cd /opt/server-log-vpn-dashboard &amp;&amp; git pull --ff-only origin main
 systemctl restart server-log-vpn-dashboard</pre></div></section>
@@ -392,14 +824,30 @@ async function refresh(){
 async function applyPeriod(){
  const start=document.getElementById('startDate').value;
  const end=document.getElementById('endDate').value;
+ const type=document.getElementById('activityType').value;
+ const q=document.getElementById('activitySearch').value.trim();
  if(start&&end&&start>end){alert('Tanggal mulai tidak boleh melewati tanggal akhir.');return;}
- const params=new URLSearchParams();if(start)params.set('start_date',start);if(end)params.set('end_date',end);
- const button=document.getElementById('applyPeriod');button.disabled=true;button.textContent='Memuat…';
+ const params=new URLSearchParams();
+ if(start)params.set('start_date',start);
+ if(end)params.set('end_date',end);
+ if(type!=='all')params.set('type',type);
+ if(q)params.set('q',q);
+ const button=document.getElementById('applyPeriod');
+ button.disabled=true;button.textContent='Memuat…';
  try{
-  const r=await fetch('/api/events?'+params.toString(),{cache:'no-store'});const d=await r.json();
+  const r=await fetch('/api/events?'+params.toString(),{cache:'no-store'});
+  const d=await r.json();
   if(!r.ok)throw new Error(d.error||('HTTP '+r.status));
-  allEvents=d.events||[];periodMode=true;renderEvents();enrichPublicIPs(allEvents);
-  document.getElementById('resultNote').textContent='Hasil periode: '+allEvents.length+' dari '+d.total+' aktivitas'+(d.total>allEvents.length?' (dibatasi 5.000 baris)':'');
+  allEvents=d.events||[];
+  periodMode=true;
+  renderEvents();
+  enrichPublicIPs(allEvents);
+  const hasPeriod = !!(start || end);
+  const resultLabel = hasPeriod ? 'Hasil periode: ' :
+                      (q || type !== 'all' ? 'Hasil pencarian: ' : 'Semua aktivitas: ');
+  document.getElementById('resultNote').textContent=
+   resultLabel+allEvents.length+' dari '+d.total+' aktivitas'+
+   (d.total>allEvents.length?' (ditampilkan maksimal 5.000 baris)':'');
  }catch(e){alert('Pencarian periode gagal: '+e.message)}
  finally{button.disabled=false;button.textContent='Tampilkan';}
 }
@@ -419,10 +867,20 @@ function exportExcel(){
 }
 
 function resetPeriod(){
- document.getElementById('startDate').value='';document.getElementById('endDate').value='';periodMode=false;refresh();
+ document.getElementById('startDate').value='';
+ document.getElementById('endDate').value='';
+ document.getElementById('activitySearch').value='';
+ document.getElementById('activityType').value='all';
+ periodMode=false;
+ refresh();
 }
-document.getElementById('activitySearch').addEventListener('input',renderEvents);
-document.getElementById('activityType').addEventListener('change',renderEvents);
+
+let activitySearchTimer;
+document.getElementById('activitySearch').addEventListener('input',()=>{
+ clearTimeout(activitySearchTimer);
+ activitySearchTimer=setTimeout(applyPeriod,400);
+});
+document.getElementById('activityType').addEventListener('change',applyPeriod);
 document.getElementById('applyPeriod').addEventListener('click',applyPeriod);
 document.getElementById('resetPeriod').addEventListener('click',resetPeriod);
 document.getElementById('exportExcel').addEventListener('click',exportExcel);
@@ -1001,12 +1459,373 @@ setInterval(loadL2tpOnline,10000);
 
 
 // Navigasi halaman: setiap menu hanya menampilkan bagian yang dipilih.
+
+// RIM VPN Live Map
+let vpnLeafletMap = null;
+let vpnMarkerLayer = null;
+let vpnMapData = null;
+let vpnHistoryData = [];
+let vpnGeoCache = {};
+let vpnGeoQueueRunning = false;
+
+function vpnEscape(value){
+ return String(value ?? '').replace(/[&<>"']/g, c => ({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+ }[c]));
+}
+function vpnPublicIp(value){
+ const raw = String(value || '').trim();
+ try{
+  const ip = raw.includes(':') && raw.split('.').length === 4
+   ? raw.split(':')[0] : raw;
+  const parsed = new URL('http://' + ip).hostname;
+  const parts = parsed.split('.');
+  if(parts.length !== 4 || parts.some(x => !/^\d+$/.test(x))) return '';
+  const n = parts.map(Number);
+  if(n.some(x => x < 0 || x > 255)) return '';
+  if(n[0] === 10 || n[0] === 127 || n[0] === 0 ||
+     (n[0] === 169 && n[1] === 254) ||
+     (n[0] === 172 && n[1] >= 16 && n[1] <= 31) ||
+     (n[0] === 192 && n[1] === 168) ||
+     n[0] >= 224) return '';
+  return n.join('.');
+ }catch(e){return '';}
+}
+function vpnLoadGeoCache(){
+ try{vpnGeoCache = JSON.parse(localStorage.getItem('rimVpnGeoCache') || '{}') || {};}
+ catch(e){vpnGeoCache = {};}
+}
+function vpnSaveGeoCache(){
+ try{localStorage.setItem('rimVpnGeoCache', JSON.stringify(vpnGeoCache));}
+ catch(e){}
+}
+function vpnInitMap(){
+ if(vpnLeafletMap) return true;
+ if(!window.L){
+  document.getElementById('vpnMapMessage').textContent =
+   'Library peta belum berhasil dimuat. Periksa akses internet ke CDN Leaflet.';
+  return false;
+ }
+ vpnLeafletMap = L.map('vpnmap-canvas').setView([-2.5,118],5);
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  maxZoom:18,
+  attribution:'&copy; OpenStreetMap contributors'
+ }).addTo(vpnLeafletMap);
+ vpnMarkerLayer = L.layerGroup().addTo(vpnLeafletMap);
+ setTimeout(() => vpnLeafletMap.invalidateSize(),200);
+ return true;
+}
+function vpnFilteredSessions(){
+ if(!vpnMapData) return [];
+ const router = document.getElementById('vpnMapRouter').value;
+ const service = document.getElementById('vpnMapService').value;
+ const query = document.getElementById('vpnMapSearch').value.trim().toLowerCase();
+ return (vpnMapData.sessions || []).filter(s =>
+  (!router || String(s.router_id) === router) &&
+  (!service || s.service === service) &&
+  (!query || [s.user,s.vpn_ip,s.remote_ip,s.router_name].join(' ').toLowerCase().includes(query))
+ );
+}
+function vpnRenderRows(){
+ const sessions = vpnFilteredSessions();
+ document.getElementById('vpnMapSessionCount').textContent = sessions.length + ' sesi';
+ const rows = document.getElementById('vpnMapRows');
+ if(!sessions.length){
+  rows.innerHTML = '<tr><td colspan="7" class="empty">Tidak ada sesi yang sesuai filter.</td></tr>';
+  return;
+ }
+ rows.innerHTML = sessions.map(s => {
+  const ip = vpnPublicIp(s.remote_ip);
+  const geo = ip && vpnGeoCache[ip] && vpnGeoCache[ip].success
+   ? [vpnGeoCache[ip].city,vpnGeoCache[ip].region,vpnGeoCache[ip].country].filter(Boolean).join(', ')
+   : (ip ? 'Mencari lokasi…' : 'IP publik tidak tersedia');
+  return `<tr><td>${vpnEscape(s.router_name)}</td><td><span class="pill ${s.service==='SSTP'?'p-login':'p-failed'}">${vpnEscape(s.service)}</span></td><td>${vpnEscape(s.user)}</td><td>${vpnEscape(s.vpn_ip)}</td><td>${vpnEscape(s.remote_ip)}</td><td>${vpnEscape(geo)}</td><td>${vpnEscape(s.uptime)}</td></tr>`;
+ }).join('');
+}
+function vpnRenderMarkers(){
+ if(!vpnInitMap()) return;
+ vpnMarkerLayer.clearLayers();
+ const sessions = vpnFilteredSessions();
+ const bounds = [];
+ sessions.forEach(s => {
+  const ip = vpnPublicIp(s.remote_ip);
+  const geo = ip && vpnGeoCache[ip];
+  if(!geo || !geo.success || !Number.isFinite(Number(geo.latitude)) ||
+     !Number.isFinite(Number(geo.longitude))) return;
+  const color = s.service === 'SSTP' ? '#39a5ff' : '#10d58a';
+  const marker = L.circleMarker([Number(geo.latitude),Number(geo.longitude)],{
+   radius:7,color:color,fillColor:color,fillOpacity:.8,weight:2
+  });
+  marker.bindPopup(
+   `<b>${vpnEscape(s.user)}</b><br>${vpnEscape(s.service)} · ${vpnEscape(s.router_name)}<br>`+
+   `IP VPN: ${vpnEscape(s.vpn_ip)}<br>IP Publik: ${vpnEscape(s.remote_ip)}<br>`+
+   `${vpnEscape([geo.city,geo.region,geo.country].filter(Boolean).join(', '))}<br>Uptime: ${vpnEscape(s.uptime)}`
+  );
+  marker.addTo(vpnMarkerLayer);
+  bounds.push([Number(geo.latitude),Number(geo.longitude)]);
+ });
+ if(bounds.length) vpnLeafletMap.fitBounds(bounds,{padding:[25,25],maxZoom:8});
+}
+async function vpnResolveGeo(){
+ if(vpnGeoQueueRunning || !vpnMapData) return;
+ vpnGeoQueueRunning = true;
+ try{
+  const activeIps = vpnFilteredSessions().map(s => vpnPublicIp(s.remote_ip));
+  const historyIps = (vpnHistoryData || []).map(s => vpnPublicIp(s.remote_ip));
+  const ips = [...new Set([...activeIps,...historyIps].filter(Boolean))];
+  for(const ip of ips){
+   const cached = vpnGeoCache[ip];
+
+   // Cache sukses hanya dianggap lengkap jika informasi ISP sudah tersedia.
+   if(cached && cached.success && cached.provider) continue;
+
+   // Cache gagal tetap diberi jeda 24 jam sebelum dicoba kembali.
+   if(cached && !cached.success &&
+      Date.now() - (cached.checkedAt || 0) < 86400000) continue;
+   try{
+    const response = await fetch('https://ipwho.is/' + encodeURIComponent(ip));
+    const data = await response.json();
+
+    // Gunakan sumber ISP yang sama dengan menu Log Aktivitas VPN.
+    let provider = '';
+    try {
+     const metaResponse = await fetch(
+      '/api/ip-info?ip=' + encodeURIComponent(ip),
+      {cache:'no-store'}
+     );
+     const meta = await metaResponse.json();
+     if(metaResponse.ok && meta.ok === true) {
+      provider = meta.provider || '';
+     }
+    }catch(metaError){
+     console.warn('Metadata ISP tidak tersedia:',ip,metaError);
+    }
+
+    vpnGeoCache[ip] = {
+     success:data.success === true,
+     latitude:Number(data.latitude),
+     longitude:Number(data.longitude),
+     city:data.city || '',
+     region:data.region || '',
+     country:data.country || '',
+     provider:provider,
+     isp:provider || (data.connection && data.connection.isp) || '',
+     org:(data.connection && data.connection.org) || '',
+     asn:(data.connection && data.connection.asn) || '',
+     checkedAt:Date.now()
+    };
+   }catch(e){
+    vpnGeoCache[ip] = {success:false,checkedAt:Date.now()};
+   }
+   vpnSaveGeoCache();
+   vpnRenderRows();
+   vpnRenderMarkers();
+   vpnRenderLoginHistory();
+   await new Promise(resolve => setTimeout(resolve,1100));
+  }
+ }finally{
+  vpnGeoQueueRunning = false;
+  vpnRenderRows();
+  vpnRenderMarkers();
+  document.getElementById('vpnMapMessage').textContent =
+   'Pembaruan selesai. Lokasi ditampilkan jika IP publik berhasil dikenali.';
+ }
+}
+function vpnRenderLoginHistory(){
+ const box = document.getElementById('vpnHistoryList');
+ const count = document.getElementById('vpnHistoryCount');
+ if(!box || !count) return;
+
+ const rows = vpnHistoryData || [];
+ count.textContent = rows.length + ' riwayat';
+
+ if(!rows.length){
+  box.innerHTML = '<div class="empty">Belum ada riwayat login VPN.</div>';
+  return;
+ }
+
+ box.innerHTML = rows.map(item => {
+  const ip = vpnPublicIp(item.remote_ip);
+  const geo = ip && vpnGeoCache[ip] && vpnGeoCache[ip].success
+   ? [vpnGeoCache[ip].city,vpnGeoCache[ip].region,vpnGeoCache[ip].country].filter(Boolean).join(', ')
+   : (ip ? 'Lokasi belum tersedia' : 'IP publik tidak tersedia');
+
+  const isp = ip && vpnGeoCache[ip] && vpnGeoCache[ip].success
+   ? (vpnGeoCache[ip].provider || vpnGeoCache[ip].isp || vpnGeoCache[ip].org || 'ISP tidak diketahui')
+   : 'ISP belum diketahui';
+
+  const online = item.status === 'ONLINE';
+  const service = item.connection_type || 'UNKNOWN';
+  const device = 'Tidak diketahui';
+  const logout = item.logout_at ? 'Logout: ' + item.logout_at : 'Belum logout';
+
+  return `<article class="vpn-history-item">
+   <div class="vpn-history-top">
+    <strong>${vpnEscape(item.username || 'Unknown')}</strong>
+    <span class="${online ? 'noc-good' : 'noc-bad'}">${online ? 'ONLINE' : 'OFFLINE'}</span>
+   </div>
+   <div class="vpn-history-meta">
+    <span>${vpnEscape(service)}</span>
+    <span>${vpnEscape(item.login_at || '-')}</span>
+   </div>
+   <div class="vpn-history-detail">📍 ${vpnEscape(geo)}</div>
+   <div class="vpn-history-detail">🌐 ${vpnEscape(isp)}</div>
+   <div class="vpn-history-detail">🖥️ Perangkat: ${device}</div>
+   <div class="vpn-history-detail">IP Publik: ${vpnEscape(item.remote_ip || '-')}</div>
+   <div class="vpn-history-detail">IP VPN: ${vpnEscape(item.vpn_ip || '-')}</div>
+   <div class="vpn-history-foot">${vpnEscape(logout)}</div>
+  </article>`;
+ }).join('');
+}
+
+async function loadVpnLoginHistory(){
+ const box = document.getElementById('vpnHistoryList');
+ if(!box) return;
+
+ try{
+  const response = await fetch('/api/vpn-login-history',{cache:'no-store'});
+  const data = await response.json();
+
+  if(!response.ok || data.ok !== true)
+   throw new Error(data.error || 'Gagal membaca riwayat');
+
+  vpnHistoryData = data.history || [];
+  vpnRenderLoginHistory();
+ }catch(e){
+  box.innerHTML = '<div class="empty">Riwayat login belum dapat dimuat.</div>';
+  console.error('VPN history:',e);
+ }
+}
+async function loadVpnLiveMap(){
+ if(!document.getElementById('vpnmap') || document.getElementById('vpnmap').classList.contains('view-hidden')) return;
+ if(!vpnInitMap()) return;
+ document.getElementById('vpnMapMessage').textContent = 'Mengambil data seluruh router…';
+ try{
+  const response = await fetch('/api/vpn-live-map',{cache:'no-store'});
+  const data = await response.json();
+  if(!response.ok || data.ok !== true) throw new Error(data.error || 'API gagal dibaca');
+  vpnMapData = data;
+  document.getElementById('vpnMapSessions').textContent = data.sessions_total ?? (data.sessions||[]).length;
+  document.getElementById('vpnMapRouters').textContent = data.routers_online ?? 0;
+  document.getElementById('vpnMapSstp').textContent = (data.sessions||[]).filter(s=>s.service==='SSTP').length;
+  document.getElementById('vpnMapL2tp').textContent = (data.sessions||[]).filter(s=>s.service==='L2TP').length;
+  document.getElementById('vpnMapUpdated').textContent = 'Update ' + new Date().toLocaleTimeString('id-ID');
+  const select = document.getElementById('vpnMapRouter');
+  const old = select.value;
+  select.innerHTML = '<option value="">Semua Router</option>' +
+   (data.routers||[]).map(r=>`<option value="${vpnEscape(r.id)}">${vpnEscape(r.name)}</option>`).join('');
+  if((data.routers||[]).some(r=>String(r.id)===old)) select.value=old;
+  await loadVpnLoginHistory();
+  vpnRenderRows();
+  vpnRenderMarkers();
+  vpnResolveGeo();
+  vpnRenderLoginHistory();
+ }catch(e){
+  document.getElementById('vpnMapMessage').textContent = 'Gagal memuat data: ' + e.message;
+ }
+}
+function vpnMapFiltersChanged(){
+ vpnRenderRows();
+ vpnRenderMarkers();
+ vpnResolveGeo();
+}
+vpnLoadGeoCache();
+['vpnMapRouter','vpnMapService'].forEach(id=>{
+ const el=document.getElementById(id);
+ if(el) el.addEventListener('change',vpnMapFiltersChanged);
+});
+document.getElementById('vpnMapSearch')?.addEventListener('input',vpnMapFiltersChanged);
+document.getElementById('vpnMapRefresh')?.addEventListener('click',loadVpnLiveMap);
+
+
+// RIM VPN FULLSCREEN MODE V3
+(function(){
+ const mapSection = document.getElementById('vpnmap');
+ if (!mapSection) return;
+
+ const controls = document.createElement('div');
+ controls.className = 'rim-map-focus-controls';
+ controls.innerHTML =
+   '<strong>RIM VPN LIVE MAP</strong>' +
+   '<span>ESC untuk kembali</span>' +
+   '<button type="button" id="rimMapExit">✕ Keluar</button>';
+
+ mapSection.appendChild(controls);
+
+ const enterButton = document.createElement('button');
+ enterButton.type = 'button';
+ enterButton.className = 'secondary';
+ enterButton.id = 'rimMapEnter';
+ enterButton.textContent = '⛶ Perbesar Peta';
+ const toolbar = mapSection.querySelector('.toolbar');
+ if (toolbar) toolbar.appendChild(enterButton);
+
+ window.rimEnterMapFocus = function(){
+   document.body.classList.add('rim-map-focus');
+   setTimeout(function(){
+     if (vpnLeafletMap) vpnLeafletMap.invalidateSize(true);
+   }, 350);
+ };
+
+ window.rimExitMapFocus = function(){
+   document.body.classList.remove('rim-map-focus');
+   setTimeout(function(){
+     if (vpnLeafletMap) vpnLeafletMap.invalidateSize(true);
+   }, 250);
+ };
+
+ enterButton.addEventListener('click', window.rimEnterMapFocus);
+ controls.querySelector('#rimMapExit').addEventListener(
+   'click', window.rimExitMapFocus
+ );
+
+ document.addEventListener('keydown', function(e){
+   if (e.key === 'Escape' &&
+       document.body.classList.contains('rim-map-focus')) {
+     e.preventDefault();
+     window.rimExitMapFocus();
+   }
+ });
+})();
+
+
+// RIM Sidebar Hide/Show
+(function(){
+ const btn = document.getElementById('rimSidebarToggle');
+ if (!btn) return;
+
+ const saved = localStorage.getItem('rimSidebarHidden') === '1';
+ document.body.classList.toggle('rim-sidebar-hidden', saved);
+
+ function updateButton(){
+   const hidden = document.body.classList.contains('rim-sidebar-hidden');
+   btn.textContent = hidden ? '☰' : '☰';
+   btn.title = hidden ? 'Tampilkan menu' : 'Sembunyikan menu';
+   btn.setAttribute('aria-label', btn.title);
+ }
+
+ btn.addEventListener('click', function(){
+   const hidden = document.body.classList.toggle('rim-sidebar-hidden');
+   localStorage.setItem('rimSidebarHidden', hidden ? '1' : '0');
+   updateButton();
+   if (window.vpnLeafletMap) {
+     setTimeout(() => window.vpnLeafletMap.invalidateSize(true), 250);
+   }
+ });
+
+ updateButton();
+})();
+
 function showView(view){
+ if(view !== 'vpnmap' && document.body.classList.contains('rim-map-focus')){
+  window.rimExitMapFocus();
+ }
  const map = {
   overview:['overview'],
   activity:['overview','activity'],
   analysis:['analysis'],
   devices:['devices'],
+  vpnmap:['vpnmap'],
   system:['system'],
   update:['update'],
   settings:['settings'],
@@ -1017,6 +1836,7 @@ function showView(view){
   activity:['Log Aktivitas VPN','Riwayat login dan logout VPN dari seluruh perangkat/site'],
   analysis:['Analisis User VPN','Analisis tujuan koneksi dan trafik setiap pengguna VPN'],
   devices:['Perangkat / Site','Sesi VPN aktif dari CCR1009'],
+  vpnmap:['RIM VPN Live Map','Peta perkiraan lokasi sesi SSTP dan L2TP seluruh router'],
   system:['Informasi Sistem','Status aplikasi dan repository'],
   update:['Update Aplikasi','Pembaruan aplikasi dari GitHub'],
   settings:['Pengaturan','Manajemen akun dan hak akses dashboard'],
@@ -1025,7 +1845,7 @@ function showView(view){
  const visible = map[view] || map.overview;
  document.querySelectorAll('.content > section').forEach(el=>{
   el.classList.toggle('view-hidden',!visible.includes(el.id));
-  if(el.id==='devices' || el.id==='system' || el.id==='update' || el.id==='about' || el.id==='analysis' || el.id==='settings'){
+  if(el.id==='vpnmap' || el.id==='devices' || el.id==='system' || el.id==='update' || el.id==='about' || el.id==='analysis' || el.id==='settings'){
    el.classList.toggle('visible',visible.includes(el.id));
   }
  });
@@ -1036,6 +1856,7 @@ function showView(view){
 
  if(view==='analysis' && analysisSessions.length===0) loadAnalysisUsers();
  if(view==='settings') loadUsers();
+ if(view==='vpnmap') { loadVpnLiveMap(); setTimeout(()=>vpnLeafletMap && vpnLeafletMap.invalidateSize(),250); }
 }
 document.querySelectorAll('.nav a[data-view]').forEach(a=>a.addEventListener('click',e=>{
  e.preventDefault();
@@ -1044,5 +1865,7 @@ document.querySelectorAll('.nav a[data-view]').forEach(a=>a.addEventListener('cl
 document.getElementById('checkUpdate2').addEventListener('click',loadSystemInfo);
 showView('overview');
 </script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </body>
 </html>

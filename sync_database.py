@@ -15,12 +15,14 @@ from pathlib import Path
 
 import mysql.connector
 
-LOG_DIR = "/var/log/mikrotik-vpn"
+LOG_DIR = "/var/log/ccr1009-vpn"
 FLOW_DIR = "/var/cache/nfdump"
 
 VPN_NETWORKS = [
-    ipaddress.ip_network("192.168.110.0/24"),
-    ipaddress.ip_network("192.168.201.0/24"),
+    ipaddress.ip_network("192.168.110.0/24"),  # L2TP
+    ipaddress.ip_network("192.168.201.0/24"),  # SSTP
+    ipaddress.ip_network("192.168.120.0/24"),  # PPTP
+    ipaddress.ip_network("192.168.200.0/24"),  # OpenVPN
 ]
 
 LINE_RE = re.compile(r"^(\S+)\s+(\S+)\s+(.*)$")
@@ -74,12 +76,19 @@ def to_mysql_datetime(value):
 def connection_type(vpn_ip):
     try:
         ip = ipaddress.ip_address(vpn_ip)
+
         if ip in ipaddress.ip_network("192.168.110.0/24"):
             return "L2TP"
         if ip in ipaddress.ip_network("192.168.201.0/24"):
             return "SSTP"
+        if ip in ipaddress.ip_network("192.168.120.0/24"):
+            return "PPTP"
+        if ip in ipaddress.ip_network("192.168.200.0/24"):
+            return "OpenVPN"
+
     except (ValueError, TypeError):
         pass
+
     return "UNKNOWN"
 
 
@@ -146,7 +155,8 @@ def read_log_events():
                     elif FAIL_RE.search(body):
                         event["event_type"] = "failed"
 
-                    events.append(event)
+                    if event["event_type"] in ("login", "logout", "failed"):
+                        events.append(event)
 
         except OSError as exc:
             logger.warning("Gagal membaca %s: %s", path, exc)
