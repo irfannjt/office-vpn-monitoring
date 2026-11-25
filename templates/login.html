@@ -3,74 +3,156 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071629">
-<title>Login - Office VPN Monitoring</title>
+<meta name="theme-color" content="#202020">
+<meta name="description" content="Office VPN Monitoring - pusat pemantauan koneksi VPN, router, site, dan aktivitas jaringan kantor.">
+<title>Office VPN Monitoring | Network Operations</title>
 <style>
 *{box-sizing:border-box}
-:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#edf5ff}
-body{margin:0;min-height:100vh;background:#071629;display:grid;place-items:center;padding:24px}
-.login-wrap{width:min(1120px,100%);min-height:650px;display:grid;grid-template-columns:42% 58%;background:#0a1c31;border:1px solid #1a3857;border-radius:22px;overflow:hidden;box-shadow:0 30px 90px #0008}
-.left{padding:48px;display:flex;flex-direction:column;background:linear-gradient(145deg,#102b49,#08182b)}
-.logo{width:65px;height:72px;margin-bottom:26px}
-h1{font-size:26px;line-height:1.2;margin:0 0 8px}
-.subtitle{color:#9bb3ce;font-size:13px;margin-bottom:35px}
-label{display:block;font-size:12px;color:#c8d8ea;margin:18px 0 8px}
-input{width:100%;height:48px;padding:0 14px;border:1px solid #294765;border-radius:9px;background:#071629;color:white;font-size:14px;outline:none}
-input:focus{border-color:#40aaff;box-shadow:0 0 0 3px #40aaff20}
-button{width:100%;height:49px;margin-top:25px;border:0;border-radius:9px;background:linear-gradient(100deg,#2375eb,#328fe9);color:white;font-weight:700;font-size:14px;cursor:pointer}
-button:hover{filter:brightness(1.12)}
-.error{padding:11px 13px;border:1px solid #8c3547;background:#421d2b;color:#ffb6c1;border-radius:8px;font-size:12px;margin-top:16px}
-.license{margin-top:auto;padding-top:40px;color:#91a8c2;font-size:11px}
-.right{padding:60px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(ellipse at 80% 10%,#164c79 0,transparent 45%),linear-gradient(145deg,#0c2340,#081629)}
-.eyebrow{color:#58b5ff;font-size:11px;letter-spacing:3px;font-weight:800}
-.right h2{font-size:39px;line-height:1.12;max-width:560px;margin:17px 0}
-.right h2 span{color:#55b6ff}
-.description{max-width:520px;color:#a8bdd4;line-height:1.8;font-size:14px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:35px 0}
-.feature{padding:17px 13px;border:1px solid #244665;background:#102a45;border-radius:12px}
-.feature b{display:block;font-size:12px;margin-bottom:7px}
-.feature small{color:#9eb5ce;font-size:10px;line-height:1.5}
-.right-foot{border-top:1px solid #25415c;padding-top:22px;color:#9db3ca;font-size:11px;line-height:2}
-@media(max-width:800px){body{padding:12px}.login-wrap{grid-template-columns:1fr}.left{padding:32px;min-height:560px}.right{padding:35px 30px}.right h2{font-size:30px}.features{gap:8px}.feature{padding:13px 9px}}
-@media(max-width:420px){.features{grid-template-columns:1fr}.left{padding:26px}.right{padding:30px 24px}}
+:root{font-family:Inter,"Segoe UI",Arial,sans-serif;color:#f4f4f4;background:#202020;scroll-behavior:smooth;--orange:#ff6900;--orange2:#ff8a24;--ink:#202020;--panel:#292929;--muted:#b9b9b9;--line:#454545}
+body{margin:0;background:#202020;color:#f4f4f4}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.site-header{position:sticky;top:0;z-index:20;background:#191919ed;border-bottom:1px solid #3b3b3b;backdrop-filter:blur(12px)}
+.nav-wrap{width:min(1180px,calc(100% - 40px));height:76px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.2px;white-space:nowrap}
+.brand-mark{width:42px;height:42px;border-radius:12px;background:var(--orange);display:grid;place-items:center;color:#171717;font-size:24px;box-shadow:0 7px 22px #ff690044}
+.brand small{display:block;color:#bdbdbd;font-size:9px;letter-spacing:2px;margin-top:3px}
+.nav{display:flex;align-items:center;gap:25px}
+.nav a{font-size:12px;font-weight:800;letter-spacing:.5px;color:#e8e8e8;transition:.2s}
+.nav a:hover{color:var(--orange2)}
+.nav .nav-login{background:var(--orange);color:#171717;padding:11px 17px;border-radius:8px}
+.nav .nav-login:hover{background:#ff8a24;color:#171717}
+.menu-toggle{display:none;background:transparent;border:1px solid #555;color:#fff;border-radius:8px;padding:8px 11px}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.hero{padding:58px 0 38px}
+.hero-panel{position:relative;overflow:hidden;border:1px solid #484848;border-radius:18px;background:radial-gradient(ellipse at 88% 10%,#63300e 0,transparent 42%),linear-gradient(125deg,#303030,#222);padding:54px 52px;display:grid;grid-template-columns:1.35fr .8fr;gap:35px;align-items:center;box-shadow:0 25px 70px #0005}
+.hero-panel:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff0b;border-radius:50%;right:-110px;top:-190px;box-shadow:0 0 0 28px #ffffff06,0 0 0 58px #ffffff05,0 0 0 90px #ffffff04;pointer-events:none}
+.eyebrow{color:var(--orange2);font-size:11px;letter-spacing:3px;font-weight:900}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.04;margin:17px 0 16px;letter-spacing:-1.7px}
+.hero h1 span{color:var(--orange)}
+.hero-copy{max-width:650px;color:#c6c6c6;line-height:1.8;font-size:14px;margin:0}
+.hero-pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}
+.pill{border:1px solid #555;background:#ffffff09;border-radius:8px;padding:10px 13px;font-size:11px;color:#eee}
+.pill b{color:var(--orange2)}
+.login-card{position:relative;z-index:1;background:#191919;border:1px solid #5a402d;border-radius:14px;padding:24px;box-shadow:0 18px 45px #0005}
+.login-card h2{font-size:20px;margin:0 0 7px}
+.login-card .login-note{font-size:12px;color:#aaa;margin:0 0 18px;line-height:1.6}
+label{display:block;font-size:12px;color:#ddd;margin:14px 0 7px}
+input{width:100%;height:44px;padding:0 12px;border:1px solid #505050;border-radius:8px;background:#252525;color:#fff;font-size:13px;outline:none}
+input:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff690022}
+.login-submit{width:100%;height:46px;margin-top:20px;border:0;border-radius:8px;background:linear-gradient(100deg,#ff6500,#ff8b26);color:#191919;font-weight:900;font-size:13px;cursor:pointer}
+.login-submit:hover{filter:brightness(1.08)}
+.error{padding:10px 12px;border:1px solid #a53b36;background:#4b211e;color:#ffc4bd;border-radius:8px;font-size:12px;margin-top:14px}
+.section{padding:35px 0 26px;scroll-margin-top:90px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;border-bottom:1px solid #555;padding-bottom:13px;margin-bottom:22px}
+.section-kicker{color:var(--orange);font-size:10px;font-weight:900;letter-spacing:2px}
+.section h2{font-size:23px;margin:5px 0 0}
+.section-intro{color:#aaa;font-size:12px;line-height:1.7;margin:0;max-width:500px}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tool-card{background:#292929;border:1px solid #464646;border-radius:12px;padding:19px;min-height:155px;transition:.2s}
+.tool-card:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 12px 28px #0004}
+.tool-icon{width:39px;height:39px;border-radius:10px;background:#ff69001c;color:var(--orange2);display:grid;place-items:center;font-size:19px;margin-bottom:14px}
+.tool-card h3{font-size:14px;margin:0 0 7px}
+.tool-card p{font-size:11px;line-height:1.65;color:#aaa;margin:0 0 12px}
+.tool-card .access{font-size:10px;color:var(--orange2);font-weight:800;letter-spacing:.4px}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.info-card{background:#252525;border:1px solid #424242;border-radius:11px;padding:20px}
+.info-card h3{font-size:14px;margin:0 0 8px;color:#fff}
+.info-card p{font-size:12px;line-height:1.7;color:#aaa;margin:0}
+.info-card a{display:inline-block;margin-top:13px;color:var(--orange2);font-size:11px;font-weight:800}
+.contact-panel{background:linear-gradient(110deg,#33251c,#252525);border:1px solid #65452e;border-radius:13px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.contact-panel h3{margin:0 0 7px;font-size:17px}
+.contact-panel p{margin:0;color:#bbb;font-size:12px;line-height:1.6}
+.contact-label{background:var(--orange);color:#171717;padding:11px 15px;border-radius:8px;font-size:11px;font-weight:900;white-space:nowrap}
+footer{margin-top:38px;border-top:1px solid #3f3f3f;padding:24px 0 30px;color:#999;font-size:11px}
+.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-row b{color:#ddd}
+@media(max-width:850px){.hero-panel{grid-template-columns:1fr;padding:38px 30px}.tools-grid{grid-template-columns:repeat(2,1fr)}.nav{gap:14px}.nav a{font-size:11px}}
+@media(max-width:650px){.nav-wrap{height:66px;width:calc(100% - 28px)}.menu-toggle{display:block}.nav{display:none;position:absolute;top:65px;left:14px;right:14px;background:#1d1d1d;border:1px solid #444;border-radius:10px;padding:15px;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:12px 9px}.container{width:calc(100% - 28px)}.hero{padding-top:25px}.hero-panel{padding:30px 22px;gap:24px}.hero h1{font-size:37px}.tools-grid,.info-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.contact-panel{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
-<div class="login-wrap">
-<section class="left">
-<svg class="logo" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M32 3 57 13v19c0 17-10.4 29.4-25 36C17.4 61.4 7 49 7 32V13L32 3Z" fill="#2563eb" stroke="#65b9ff" stroke-width="2"/>
-<path d="M23 31v-5a9 9 0 0 1 18 0v5" stroke="white" stroke-width="4" stroke-linecap="round"/>
-<rect x="19" y="30" width="26" height="21" rx="5" fill="white"/>
-<circle cx="32" cy="40" r="3" fill="#1762b5"/>
-</svg>
-<h1>Selamat Datang</h1>
-<div class="subtitle">Silakan masuk untuk mengakses dashboard monitoring.</div>
-<form method="post" action="/login">
-<label for="username">Username</label>
-<input id="username" name="username" autocomplete="username" placeholder="Masukkan username" required autofocus>
-<label for="password">Password</label>
-<input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
-{% if error %}<div class="error">{{ error }}</div>{% endif %}
-<button type="submit">Masuk ke Dashboard&nbsp; →</button>
-</form>
-<div class="license">Office VPN Monitoring<br>Built with ❤️</div>
+<header class="site-header">
+ <div class="nav-wrap">
+  <a class="brand" href="#home"><span class="brand-mark">⌁</span><span>OFFICE VPN<small>NETWORK MONITORING</small></span></a>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Buka menu">☰</button>
+  <nav class="nav" id="mainNav">
+   <a href="#home">HOME</a><a href="#tools">TOOLS</a><a href="#updates">UPDATES</a><a href="#docs">DOCS</a><a href="#contact">CONTACT</a><a class="nav-login" href="#login">LOGIN →</a>
+  </nav>
+ </div>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="container">
+  <div class="hero-panel">
+   <div>
+    <div class="eyebrow">⚡ SECURE NETWORK VISIBILITY</div>
+    <h1>Monitor Your Network.<br><span>Control Your VPN.</span></h1>
+    <p class="hero-copy">Pusat pemantauan terintegrasi untuk koneksi VPN, router, site cabang, dan aktivitas jaringan kantor. Pantau infrastruktur jaringan dari satu dashboard.</p>
+    <div class="hero-pills"><span class="pill"><b>●</b> Multi Router</span><span class="pill"><b>●</b> VPN Live Monitoring</span><span class="pill"><b>●</b> Centralized Logs</span></div>
+   </div>
+   <section class="login-card" id="login">
+    <h2>Login Dashboard</h2>
+    <p class="login-note">Masuk untuk mengakses seluruh fitur monitoring dan pengelolaan jaringan.</p>
+    <form method="post" action="/login">
+     <label for="username">Username</label><input id="username" name="username" autocomplete="username" placeholder="Masukkan username" required autofocus>
+     <label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+     {% if error %}<div class="error">{{ error }}</div>{% endif %}
+     <button class="login-submit" type="submit">MASUK KE DASHBOARD&nbsp; →</button>
+    </form>
+   </section>
+  </div>
+ </div>
 </section>
-<section class="right">
-<div class="eyebrow">SECURE NETWORK VISIBILITY</div>
-<h2>OFFICE VPN<br><span>MONITORING</span></h2>
-<p class="description">Pusat pemantauan koneksi VPN, aktivitas pengguna, dan analisis trafik jaringan kantor dalam satu dashboard terintegrasi.</p>
-<div class="features">
-<div class="feature"><b>◈ User Friendly</b><small>Tampilan sederhana dan mudah digunakan.</small></div>
-<div class="feature"><b>▦ Data Terpusat</b><small>Informasi VPN terkumpul dalam satu tempat.</small></div>
-<div class="feature"><b>⬡ Secure</b><small>Akses dashboard dilindungi autentikasi.</small></div>
-</div>
-<div class="right-foot">
-<strong>FITUR MONITORING</strong><br>
-Real-time VPN Status &nbsp; • &nbsp; Log Aktivitas<br>
-User Traffic Analysis &nbsp; • &nbsp; NetFlow Monitoring
-</div>
+<section class="section" id="tools">
+ <div class="container">
+  <div class="section-head"><div><div class="section-kicker">INTERNAL MONITORING TOOLS</div><h2>Network Operations Tools</h2></div><p class="section-intro">Modul internal Office VPN Monitoring. Login diperlukan untuk membuka data operasional.</p></div>
+  <div class="tools-grid">
+   <a class="tool-card" href="/login"><div class="tool-icon">⌖</div><h3>RIM VPN Live Map</h3><p>Peta pemantauan koneksi VPN dan lokasi perkiraan IP publik antar-site.</p><span class="access">LOGIN UNTUK MEMBUKA →</span></a>
+   <a class="tool-card" href="/login"><div class="tool-icon">▤</div><h3>Log Aktivitas VPN</h3><p>Riwayat login, logout, sesi aktif, alamat IP, dan informasi koneksi.</p><span class="access">LOGIN UNTUK MEMBUKA →</span></a>
+   <a class="tool-card" href="/login"><div class="tool-icon">◷</div><h3>Analisis User VPN</h3><p>Analisis aktivitas pengguna dan ringkasan sesi koneksi VPN.</p><span class="access">LOGIN UNTUK MEMBUKA →</span></a>
+   <a class="tool-card" href="/login"><div class="tool-icon">▦</div><h3>Perangkat / Site</h3><p>Pengelolaan router dan pemantauan perangkat pada cabang.</p><span class="access">LOGIN UNTUK MEMBUKA →</span></a>
+   <a class="tool-card" href="/login"><div class="tool-icon">⌁</div><h3>Network & NetFlow</h3><p>Pemantauan trafik jaringan dan informasi aliran data.</p><span class="access">LOGIN UNTUK MEMBUKA →</span></a>
+   <a class="tool-card" href="/login"><div class="tool-icon">⚙</div><h3>System Information</h3><p>Informasi server, status layanan, dan konfigurasi aplikasi.</p><span class="access">LOGIN UNTUK MEMBUKA →</span></a>
+  </div>
+ </div>
 </section>
-</div>
+<section class="section" id="updates">
+ <div class="container">
+  <div class="section-head"><div><div class="section-kicker">DEVELOPMENT & RELEASE</div><h2>Updates & Changelog</h2></div><p class="section-intro">Riwayat pengembangan dan pembaruan kode sumber Office VPN Monitoring.</p></div>
+  <div class="info-grid">
+   <article class="info-card"><h3>Application Updates</h3><p>Pembaruan aplikasi dan pemeriksaan versi tersedia pada menu Update Aplikasi setelah login administrator.</p><a href="/login">LOGIN UNTUK MELIHAT UPDATE →</a></article>
+   <article class="info-card"><h3>Source Code</h3><p>Repositori resmi untuk melihat perubahan kode, commit, dan pengembangan fitur.</p><a href="https://github.com/irfannjt/office-vpn-monitoring" target="_blank" rel="noopener">BUKA REPOSITORY GITHUB ↗</a></article>
+   <article class="info-card"><h3>Release History</h3><p>Lihat daftar commit dan catatan perubahan terbaru dari repository.</p><a href="https://github.com/irfannjt/office-vpn-monitoring/commits/main/" target="_blank" rel="noopener">LIHAT CHANGELOG ↗</a></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="docs">
+ <div class="container">
+  <div class="section-head"><div><div class="section-kicker">KNOWLEDGE BASE</div><h2>Documentation</h2></div><p class="section-intro">Panduan penggunaan sistem monitoring dan operasional jaringan.</p></div>
+  <div class="info-grid">
+   <article class="info-card"><h3>Getting Started</h3><p>Pengenalan dashboard, navigasi menu, dan cara membaca status monitoring.</p></article>
+   <article class="info-card"><h3>VPN Monitoring</h3><p>Panduan membaca status sesi VPN, riwayat koneksi, dan informasi perangkat/site.</p></article>
+   <article class="info-card"><h3>Administrator Guide</h3><p>Informasi pengelolaan router, akun pengguna, dan pembaruan aplikasi.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="contact">
+ <div class="container">
+  <div class="contact-panel"><div><h3>Need Network Support?</h3><p>Untuk akses sistem atau bantuan operasional, hubungi administrator jaringan yang mengelola Office VPN Monitoring.</p></div><span class="contact-label">NETWORK OPERATIONS</span></div>
+ </div>
+</section>
+</main>
+<footer><div class="container footer-row"><span><b>OFFICE VPN MONITORING</b> · Secure Network Visibility</span><span>Internal Network Operations Portal · © Office VPN Monitoring</span></div></footer>
+<script>
+(function(){
+ const btn=document.getElementById('menuToggle');
+ const nav=document.getElementById('mainNav');
+ if(btn&&nav){
+  btn.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+ }
+})();
+</script>
 </body>
 </html>
